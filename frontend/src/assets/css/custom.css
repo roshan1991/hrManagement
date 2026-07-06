@@ -1,0 +1,153 @@
+/* Digital HR — Vuexy Theme Custom Overrides */
+
+/* ============================
+   HR-Specific Status Badges
+   ============================ */
+.badge-attendance-present { background-color: var(--bs-success); color: #fff; }
+.badge-attendance-absent  { background-color: var(--bs-danger);  color: #fff; }
+.badge-attendance-late    { background-color: var(--bs-warning);  color: #fff; }
+
+/* ============================
+   Premium Stat Cards
+   ============================ */
+.hr-stat-card {
+  border-radius: 0.5rem;
+  border: none;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hr-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1.5rem rgba(105, 108, 255, 0.15) !important;
+}
+
+.hr-stat-card .card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* ============================
+   Table Enhancements
+   ============================ */
+.hr-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--headings-color, #566a7f);
+  border-bottom: 2px solid var(--bs-border-color, #d9dee3);
+}
+
+.hr-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.hr-table tbody tr:hover {
+  background-color: rgba(105, 108, 255, 0.04);
+}
+
+/* ============================
+   Page Header
+   ============================ */
+.hr-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hr-page-header h4 {
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* ============================
+   Dashboard Welcome Banner
+   ============================ */
+.hr-welcome-banner {
+  background: linear-gradient(135deg, #696cff 0%, #8f91ff 50%, #a8a9ff 100%);
+  border-radius: 0.625rem;
+  color: #fff;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hr-welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -5%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.hr-welcome-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  right: 10%;
+  width: 160px;
+  height: 160px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+/* ============================
+   Sidebar Active State Override
+   ============================ */
+.menu-vertical .menu-item.active > .menu-link:not(.menu-toggle) {
+  background: linear-gradient(72.47deg, #696cff 22.16%, rgba(105,108,255,0.7) 76.47%);
+}
+
+/* ============================
+   Quick Actions Button
+   ============================ */
+.btn-hr-primary {
+  background: linear-gradient(72.47deg, #696cff 22.16%, rgba(105,108,255,0.7) 76.47%);
+  border: none;
+  color: #fff;
+  transition: box-shadow 0.2s ease;
+}
+
+.btn-hr-primary:hover {
+  color: #fff;
+  box-shadow: 0 0.25rem 1rem rgba(105, 108, 255, 0.4);
+}
+
+/* ============================
+   Generic placeholder pages
+   ============================ */
+.hr-placeholder-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 1rem;
+  color: var(--headings-color, #566a7f);
+}
+
+.hr-placeholder-page .ti {
+  font-size: 4rem;
+  opacity: 0.3;
+}
+
+/* ============================
+   React Bootstrap modal fix
+   with Vuexy z-index
+   ============================ */
+.modal-dialog {
+  z-index: 1060;
+}

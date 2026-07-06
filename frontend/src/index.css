@@ -1,0 +1,27 @@
+/* Digital HR - Base Styles (Vuexy-compatible) */
+
+/* Reset #root to full-width layout (Vuexy handles its own layout) */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border: none;
+  min-height: 100svh;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Body base — Vuexy CSS handles font-family and bg via its own vars */
+body {
+  margin: 0;
+  font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Ensure React Modal portals work above Vuexy's z-index layers */
+.modal-backdrop {
+  z-index: 1040;
+}
+.modal {
+  z-index: 1050;
+}

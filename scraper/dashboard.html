@@ -1,0 +1,1921 @@
+<html lang="en"><head><script src="https://digitalhr.cyclonenepal.com/assets/vendors/chartjs/Chart.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="huUxXxHtNgDZwmLOOCibes9azJeNiUd1xcSgLbJT">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Digital HR Complete HR Attendance System">
+    <meta name="author" content="Digital HR">
+    <meta name="keywords" content="Digital HR">
+
+    <title>Digital HR Dashboard</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --hover-color: #78ff0a;
+            --dark-primary-color: #1d6bb9;
+            --dark-hover-color: #0000a0;
+        }
+    </style>
+    <!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<!-- End fonts -->
+
+
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/select2/select2.min.css">
+
+<!--nepali datePicker -->
+<link rel="stylesheet" href=" https://digitalhr.cyclonenepal.com/assets/css/nepaliDatepicker.min.css " type="text/css">
+<!-- end-->
+
+<!-- core:css -->
+<link rel="stylesheet" href=" https://digitalhr.cyclonenepal.com/assets/vendors/core/core.css ">
+<!-- end -->
+
+<!-- Plugin css for this page -->
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+<!-- End plugin css for this page -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/fonts/feather-font/css/iconfont.css">
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+<!-- endinject -->
+
+<!-- Layout styles -->
+
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/css/style.css" id="themeColor">
+
+<!-- End layout styles -->
+<!-- RTL -->
+
+
+<link rel="shortcut icon" href="https://digitalhr.cyclonenepal.com/assets/images/favicon.png">
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/sweetalert2/sweetalert2.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <style>
+        #clockContainer {
+            background: url(https://digitalhr.cyclonenepal.com/assets/images/clock.png) no-repeat;
+            background-size: 100%;
+        }
+
+        .alert {
+            display: flex;
+            align-items: center;
+        }
+
+        .scrolling-message {
+            display: inline-block;
+            white-space: nowrap;
+            position: absolute;
+            animation: scroll-left 10s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/css/style.css" id="themeColor"></head>
+
+<body>
+<div id="preloader" style="display: none;">
+    <main class="status">
+    <svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#5ebd3e"></stop>
+                <stop offset="33%" stop-color="#ffb900"></stop>
+                <stop offset="67%" stop-color="#f78200"></stop>
+                <stop offset="100%" stop-color="#e23838"></stop>
+            </linearGradient>
+            <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+                <stop offset="0%" stop-color="#e23838"></stop>
+                <stop offset="33%" stop-color="#973999"></stop>
+                <stop offset="67%" stop-color="#009cdf"></stop>
+                <stop offset="100%" stop-color="#5ebd3e"></stop>
+            </linearGradient>
+        </defs>
+        <g fill="none" stroke-linecap="round" stroke-width="16">
+            <g class="ip__track" stroke="#ddd">
+                <path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"></path>
+                <path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"></path>
+            </g>
+            <g stroke-dasharray="180 656">
+                <path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0" d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"></path>
+                <path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358" d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"></path>
+            </g>
+        </g>
+    </svg>
+</main>
+</div>
+
+<div class="main-wrapper">
+    ]
+
+    <!-- sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://digitalhr.cyclonenepal.com/admin/dashboard" class="sidebar-brand">
+               <img src="https://digitalhr.cyclonenepal.com/uploads/company/logo/Thumb-67a066a0df356_Thumb-672213f6b708d_Thumb-670de9b0297db_Thumb-66599e3e28562_Thumb-659d2037c3ce3_dhr-logo-01.png">
+            </a>
+            <div class="sidebar-toggler not-active">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="sidebar-body ps ps--active-y">
+            <ul class="nav sidebar-menu">
+                <li class="nav-item  ">
+    <a href="https://digitalhr.cyclonenepal.com/admin/dashboard" data-href="https://digitalhr.cyclonenepal.com/admin/dashboard" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box link-icon"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+        <span class="link-title">Dashboard</span>
+    </a>
+</li>
+                <li class="nav-item     ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#company_management" data-href="#" role="button" aria-expanded="false" aria-controls="company">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify link-icon"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+            <span class="link-title">Company Management</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="company_management">
+            <ul class="nav sub-menu">
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/company" data-href="https://digitalhr.cyclonenepal.com/admin/company" class="nav-link ">Company</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/branch" data-href="https://digitalhr.cyclonenepal.com/admin/branch" class="nav-link ">Branch</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/departments" data-href="https://digitalhr.cyclonenepal.com/admin/departments" class="nav-link ">Department</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/posts" data-href="https://digitalhr.cyclonenepal.com/admin/posts" class="nav-link ">Post</a>
+                    </li>
+                            </ul>
+        </div>
+    </li>
+
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#user-management" data-href="#" role="button" aria-expanded="false" aria-controls="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user link-icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span class="link-title"> User Management </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="user-management">
+
+            <ul class="nav sub-menu">
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/admin/users" data-href="https://digitalhr.cyclonenepal.com/admin/users" class="nav-link ">Users</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+                <li class="nav-item     ">
+        <a data-href="#" class="nav-link" data-bs-toggle="collapse" href="#employee_management" role="button" aria-expanded="false" aria-controls="company">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users link-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span class="link-title">Employee Management</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+
+        <div class="collapse" id="employee_management">
+            <ul class="nav sub-menu">
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employees" data-href="https://digitalhr.cyclonenepal.com/admin/employees" class="nav-link ">Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employee/location-logs" data-href="https://digitalhr.cyclonenepal.com/admin/employee/location-logs" class="nav-link "> Location Logs</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employee/logout-requests" data-href="https://digitalhr.cyclonenepal.com/admin/employee/logout-requests" class="nav-link ">Logout Requests</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/id-card/templates" data-href="https://digitalhr.cyclonenepal.com/admin/id-card/templates" class="nav-link ">Employee Card Template</a>
+                    </li>
+                
+
+            </ul>
+        </div>
+    </li>
+
+
+
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#contractManagement" data-href="#" role="button" aria-expanded="false" aria-controls="contractManagement">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text link-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span class="link-title">Contract Management</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="contractManagement">
+            <ul class="nav sub-menu">
+
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/contract-types" data-href="https://digitalhr.cyclonenepal.com/admin/contract-types" class="nav-link ">
+                            Contract Type
+                        </a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/contract" data-href="https://digitalhr.cyclonenepal.com/admin/contract" class="nav-link ">
+                            Employee Contract
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </li>
+                <li class="nav-item     ">
+        <a data-href="#" class="nav-link" data-bs-toggle="collapse" href="#attendance_management" role="button" aria-expanded="false" aria-controls="company">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-check link-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+            <span class="link-title">Attendance Section</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+
+        <div class="collapse" id="attendance_management">
+            <ul class="nav sub-menu">
+
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/admin/attendances" data-href="https://digitalhr.cyclonenepal.com/admin/attendances" class="nav-link ">Attendance</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/admin/attendance/logs" data-href="https://digitalhr.cyclonenepal.com/admin/attendance/logs" class="nav-link ">Attendance Logs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/admin/attendance/export" data-href="https://digitalhr.cyclonenepal.com/admin/attendance/export" class="nav-link ">Attendance Report</a>
+                </li>
+
+            </ul>
+        </div>
+    </li>
+
+
+
+
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#projectMenu" data-href="#" role="button" aria-expanded="false" aria-controls="projectMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout link-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            <span class="link-title">Project Management</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="projectMenu">
+            <ul class="nav sub-menu">
+
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/projects" data-href="https://digitalhr.cyclonenepal.com/admin/projects" class="nav-link ">Project</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/tasks" data-href="https://digitalhr.cyclonenepal.com/admin/tasks" class="nav-link ">Tasks</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/clients" data-href="https://digitalhr.cyclonenepal.com/admin/clients" class="nav-link ">Clients</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </li>
+
+
+
+                <li class="nav-item ">
+        <a href="https://digitalhr.cyclonenepal.com/admin/notices" data-href="https://digitalhr.cyclonenepal.com/admin/notices" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar link-icon"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span class="link-title">Notice</span>
+        </a>
+    </li>
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#payroll" data-href="#" role="button" aria-expanded="false" aria-controls="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift link-icon"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+            <span class="link-title"> Payroll Management </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="payroll">
+
+            <ul class="nav sub-menu">
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employee-salaries/payroll" data-href="https://digitalhr.cyclonenepal.com/admin/employee-salaries/payroll" class="nav-link  ">Payroll</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/salary-components" data-href="https://digitalhr.cyclonenepal.com/admin/salary-components" class="nav-link ">Payroll Setting
+                        </a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/advance-salaries" data-href="https://digitalhr.cyclonenepal.com/admin/advance-salaries" class="nav-link  ">Advance Salary</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employee-salaries" data-href="https://digitalhr.cyclonenepal.com/admin/employee-salaries" class="nav-link  ">Employee Salary</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/employee-salaries/tax-report" data-href="https://digitalhr.cyclonenepal.com/admin/employee-salaries/tax-report" class="nav-link  ">Tax report</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/tadas" data-href="https://digitalhr.cyclonenepal.com/admin/tadas" class="nav-link  ">Tada</a>
+                    </li>
+                
+
+            </ul>
+        </div>
+    </li>
+
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#loan" data-href="#" role="button" aria-expanded="false" aria-controls="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-gift link-icon"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+            <span class="link-title"> Loan Management </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="loan">
+
+            <ul class="nav sub-menu">
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/loan-types" data-href="https://digitalhr.cyclonenepal.com/admin/loan-types" class="nav-link  ">Loan Type</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/loan" data-href="https://digitalhr.cyclonenepal.com/admin/loan" class="nav-link  ">Loan List</a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/loan-repayment" data-href="https://digitalhr.cyclonenepal.com/admin/loan-repayment" class="nav-link  ">Loan Repayment</a>
+                    </li>
+                
+                
+
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/emi-calculator" data-href="https://digitalhr.cyclonenepal.com/emi-calculator" class="nav-link  ">EMI Calculator</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="https://digitalhr.cyclonenepal.com/admin/request-settlement" data-href="https://digitalhr.cyclonenepal.com/admin/request-settlement" class="nav-link  ">Settlement Request List</a>
+                </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/loan/setting" data-href="https://digitalhr.cyclonenepal.com/admin/loan/setting" class="nav-link  ">Setting</a>
+                    </li>
+                
+
+
+            </ul>
+        </div>
+    </li>
+
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#leaveMenu" data-href="#" role="button" aria-expanded="false" aria-controls="leaveMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle link-icon"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+            <span class="link-title">Leave</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="leaveMenu">
+            <ul class="nav sub-menu">
+
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/leaves" data-href="https://digitalhr.cyclonenepal.com/admin/leaves" class="nav-link ">Leave Types</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/leave-request" data-href="https://digitalhr.cyclonenepal.com/admin/leave-request" class="nav-link ">Leave Request</a>
+                    </li>
+                
+
+
+
+
+
+
+
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/leave-approval" data-href="https://digitalhr.cyclonenepal.com/admin/leave-approval" class="nav-link ">Leave Approval</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/leave/balance" data-href="https://digitalhr.cyclonenepal.com/admin/leave/balance" class="nav-link ">Leave Balance</a>
+                    </li>
+                
+
+
+            </ul>
+        </div>
+    </li>
+
+                <li class="nav-item ">
+        <a href="https://digitalhr.cyclonenepal.com/admin/team-meetings" data-href="https://digitalhr.cyclonenepal.com/admin/team-meetings" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe link-icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span class="link-title">Team Meeting</span>
+        </a>
+    </li>
+                <li class="nav-item ">
+        <a href="https://digitalhr.cyclonenepal.com/admin/event" data-href="https://digitalhr.cyclonenepal.com/admin/event" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tv link-icon"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+            <span class="link-title">Event</span>
+        </a>
+    </li>
+
+                <li class="nav-item      ">
+        <a class="nav-link" data-href="#" data-bs-toggle="collapse" href="#shiftManagement" role="button" aria-expanded="false" aria-controls="shiftManagment">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-watch link-icon"><circle cx="12" cy="12" r="7"></circle><polyline points="12 9 12 12 13.5 13.5"></polyline><path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83"></path></svg>
+            <span class="link-title"> Shift Management </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="shiftManagement">
+             <ul class="nav sub-menu">
+
+                                     <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/office-times" data-href="https://digitalhr.cyclonenepal.com/admin/office-times" class="nav-link ">Office Time </a>
+                    </li>
+                 
+            </ul>
+        </div>
+    </li>
+                <li class="nav-item      ">
+        <a class="nav-link" data-href="#" data-bs-toggle="collapse" href="#trainingManagement" role="button" aria-expanded="false" aria-controls="shiftManagment">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book link-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span class="link-title"> Training Management </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="trainingManagement">
+             <ul class="nav sub-menu">
+
+                                     <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/training-types" data-href="https://digitalhr.cyclonenepal.com/admin/training-types" class="nav-link ">Training Type </a>
+                    </li>
+                                                       <li class="nav-item">
+                         <a href="https://digitalhr.cyclonenepal.com/admin/trainers" data-href="https://digitalhr.cyclonenepal.com/admin/trainers" class="nav-link ">Trainer </a>
+                     </li>
+                 
+                                      <li class="nav-item">
+                         <a href="https://digitalhr.cyclonenepal.com/admin/training" data-href="https://digitalhr.cyclonenepal.com/admin/training" class="nav-link ">Training </a>
+                     </li>
+                 
+             </ul>
+        </div>
+    </li>
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#recruitment" data-href="#" role="button" aria-expanded="false" aria-controls="recruitment">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus link-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            <span class="link-title">Recruitment</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="recruitment">
+            <ul class="nav sub-menu">
+
+
+
+
+
+
+
+
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-type" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-type" class="nav-link ">Job Type</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/job" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/job" class="nav-link ">Job</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-applicant" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-applicant" class="nav-link ">Job Applicant</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/interview" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/interview" class="nav-link ">Interview</a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/recommendation-type" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/recommendation-type" class="nav-link ">Recommendation Type</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/feedback" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/feedback" class="nav-link ">Feedback</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-offer" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/job-offer" class="nav-link ">Job Offer</a>
+                    </li>
+                
+                                            <li class="nav-item ">
+                            <a href="https://digitalhr.cyclonenepal.com/admin/recruitment/onboard/list" data-href="https://digitalhr.cyclonenepal.com/admin/recruitment/onboard/list" class="nav-link ">Onboard</a>
+                        </li>
+                                </ul>
+        </div>
+    </li>
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#awards" data-href="#" role="button" aria-expanded="false" aria-controls="awards">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus link-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+            <span class="link-title">HR Admin Setup</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="awards">
+            <ul class="nav sub-menu">
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/awards" data-href="https://digitalhr.cyclonenepal.com/admin/awards" class="nav-link ">Awards</a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/termination" data-href="https://digitalhr.cyclonenepal.com/admin/termination" class="nav-link ">Termination</a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a class="nav-link " href="https://digitalhr.cyclonenepal.com/admin/resignation" data-href="https://digitalhr.cyclonenepal.com/admin/resignation">
+                            Resignation
+                        </a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a class="nav-link " href="https://digitalhr.cyclonenepal.com/admin/warning" data-href="https://digitalhr.cyclonenepal.com/admin/warning">
+                            Warning
+                        </a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a class="nav-link " href="https://digitalhr.cyclonenepal.com/admin/complaint" data-href="https://digitalhr.cyclonenepal.com/admin/complaint">
+                            Complaint
+                        </a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a class="nav-link " data-href="https://digitalhr.cyclonenepal.com/admin/promotion" href="https://digitalhr.cyclonenepal.com/admin/promotion">
+                            Promotion
+                        </a>
+                    </li>
+                                                    <li class="nav-item  ">
+                        <a class="nav-link " data-href="https://digitalhr.cyclonenepal.com/admin/transfer" href="https://digitalhr.cyclonenepal.com/admin/transfer">
+                            Transfer
+                        </a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/holidays" data-href="https://digitalhr.cyclonenepal.com/admin/holidays" class="nav-link ">
+                            Holidays
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </li>
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#assets" data-href="#" role="button" aria-expanded="false" aria-controls="assets">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-loader link-icon"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>
+            <span class="link-title">Asset Management</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse" id="assets">
+            <ul class="nav sub-menu">
+
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/asset-types" data-href="https://digitalhr.cyclonenepal.com/admin/asset-types" class="nav-link ">Asset Types</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/assets" data-href="https://digitalhr.cyclonenepal.com/admin/assets" class="nav-link ">Assets</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/asset-return" data-href="https://digitalhr.cyclonenepal.com/admin/asset-return" class="nav-link ">Asset Return</a>
+                    </li>
+                            </ul>
+        </div>
+    </li>
+
+
+
+                <li class="nav-item">
+        <a href="https://digitalhr.cyclonenepal.com/admin/static-page-contents" data-href="https://digitalhr.cyclonenepal.com/admin/static-page-contents" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-book link-icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span class="link-title">Content Management</span>
+        </a>
+    </li>
+                <li class="nav-item ">
+        <a href="https://digitalhr.cyclonenepal.com/admin/supports/get-all-query" data-href="https://digitalhr.cyclonenepal.com/admin/supports/get-all-query" class="nav-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle link-icon"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span class="link-title">Support</span>
+        </a>
+    </li>
+                <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#attendance_method" data-href="#" role="button" aria-expanded="false" aria-controls="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tool link-icon"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <span class="link-title"> Attendance Methods </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="attendance_method">
+
+            <ul class="nav sub-menu">
+
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/biometric-devices" data-href="https://digitalhr.cyclonenepal.com/admin/biometric-devices" class="nav-link ">Biometric Device
+                        </a>
+                    </li>
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/routers" data-href="https://digitalhr.cyclonenepal.com/admin/routers" class="nav-link ">Routers
+                        </a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/nfc" data-href="https://digitalhr.cyclonenepal.com/admin/nfc" class="nav-link ">NFC</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/qr" data-href="https://digitalhr.cyclonenepal.com/admin/qr" class="nav-link ">QR</a>
+                    </li>
+
+                                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/attendance-settings" data-href="https://digitalhr.cyclonenepal.com/admin/attendance-settings" class="nav-link ">Attendance Setting</a>
+                    </li>
+
+                
+
+            </ul>
+        </div>
+    </li>
+
+
+    <li class="nav-item  ">
+        <a class="nav-link" data-bs-toggle="collapse" href="#setting" data-href="#" role="button" aria-expanded="false" aria-controls="settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings link-icon"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span class="link-title"> Settings </span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down link-arrow"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="collapse " id="setting">
+
+            <ul class="nav sub-menu">
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/roles" data-href="https://digitalhr.cyclonenepal.com/admin/roles" class="nav-link ">Roles &amp; Permissions</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/general-settings" data-href="https://digitalhr.cyclonenepal.com/admin/general-settings" class="nav-link ">General Settings</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/app-settings/index" data-href="https://digitalhr.cyclonenepal.com/admin/app-settings/index" class="nav-link ">App Settings</a>
+                    </li>
+                
+                                    <li class="nav-item">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/notifications" data-href="https://digitalhr.cyclonenepal.com/admin/notifications" class="nav-link ">Notifications</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/payment-currency" data-href="https://digitalhr.cyclonenepal.com/admin/payment-currency" class="nav-link "> Payment Currency</a>
+                    </li>
+
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/feature/index" data-href="https://digitalhr.cyclonenepal.com/admin/feature/index" class="nav-link "> Feature Control</a>
+                    </li>
+                
+                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/fiscal_year" data-href="https://digitalhr.cyclonenepal.com/admin/fiscal_year" class="nav-link "> Fiscal Year</a>
+                    </li>
+                                                    <li class="nav-item ">
+                        <a href="https://digitalhr.cyclonenepal.com/admin/theme-color-setting" data-href="https://digitalhr.cyclonenepal.com/admin/theme-color-setting" class="nav-link "> Theme Color</a>
+                    </li>
+                
+
+            </ul>
+        </div>
+    </li>
+            </ul>
+        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 550px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 282px;"></div></div></div>
+    </nav>
+    <!-- partial -->
+
+
+    <div class="page-wrapper">
+        <style>
+    #nav-search-listing > li.highlight {
+        background-color:#e82e5f;
+    }
+    #nav-search-listing > li:hover{
+        background-color: #e82e5f;
+    }
+
+    #nav-search-listing > li {
+        border-bottom: 1px dashed #f1f1f1;
+    }
+
+    #nav-search-listing > li.highlight a,#nav-search-listing > li:hover a  {
+        color: white;
+    }
+
+    #nav-search-listing > li a {
+        text-transform: capitalize;
+        color: #232323;
+    }
+</style>
+
+<!-- partial:partials/_navbar.html -->
+<nav class="navbar">
+    <a href="#" class="sidebar-toggler">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </a>
+    <div class="navbar-content">
+
+
+
+
+
+
+
+
+
+        <form class="search-form mb-0">
+            <div class="input-group">
+                <div class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <div id="admin-search-menu">
+                        <input class="form-control mt-0" id="nav-search" name="nav-search" type="text" autocomplete="off" placeholder="Search Menu(ctrl+q)" aria-label="Search">
+
+                        <div class="card card-admin-search" data-toggle="" style="position: absolute !important;">
+                            <ul id="nav-search-listing" class="list-group list-group-flush">
+
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </form>
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ml-1"> English </span>
+                                    </a>
+                <div class="dropdown-menu p-0" aria-labelledby="langDropdown">
+
+                    <ul class="list-unstyled p-1">
+
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang  active text-white " data-lang="en">
+                                <i class="flag-icon flag-icon-us" title="us" id="us"></i> <span class="ml-1"> English </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="fr">
+                                <i class="flag-icon flag-icon-fr" title="fr" id="fr"></i> <span class="ml-1"> Français </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="de">
+                           <i class="flag-icon flag-icon-de" title="de" id="de"></i> <span class="ml-1"> Deutsch </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="pt">
+                           <i class="flag-icon flag-icon-pt" title="pt" id="pt"></i> <span class="ml-1"> Português </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="es">
+                            <i class="flag-icon flag-icon-es" title="es" id="es"></i> <span class="ml-1"> Española </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="hi">
+                           <i class="flag-icon flag-icon-in" title="hi" id="hi"></i> <span class="ml-1"> हिंदी </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="ru">
+                           <i class="flag-icon flag-icon-ru" title="ru" id="ru"></i> <span class="ml-1"> русский </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="ne">
+                           <i class="flag-icon flag-icon-np" title="ne" id="ne"></i> <span class="ml-1"> नेपाली </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="tr">
+                           <i class="flag-icon flag-icon-tr" title="tr" id="tr"></i> <span class="ml-1"> Türkçe </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="ar">
+                                <i class="flag-icon flag-icon-sa" title="ar" id="ar"></i> <span class="ml-1"> عربي </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="dropdown-item changeLang " data-lang="fa">
+                                <i class="flag-icon flag-icon-ir" title="fa" id="fa"></i> <span class="ml-1"> فارسی </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <button type="button" class="navbar-toggler align-self-center">
+                    <span title="Light mode" id="sun" style="display: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun link-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </span>
+
+                    <span title="Dark mode" id="moon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon link-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </span>
+                </button>
+            </li>
+
+                            <li class="nav-item dropdown" id="notificationsNavBar" data-href="https://digitalhr.cyclonenepal.com/admin/notifications/get-nav-notification">
+                    <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                        <div class="indicator">
+                            <div class="circle"></div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu p-0" aria-labelledby="notificationDropdown">
+
+
+
+
+
+                        <div class="p-1 mt-2" id="notifications-detail">
+                            <a class="text-muted p-0 px-3 py-2 " style="font-size: 12px;">Latest Notifications </a>
+                        </div>
+
+                        <div class="p-1" id="notifications-detail">
+
+
+                        </div>
+
+                        <div class="px-3 py-2 d-flex align-items-center justify-content-center border-top">
+                            <a href="" id="navAdminNotificationList" data-href="https://digitalhr.cyclonenepal.com/admin/notifications">View all</a>
+                        </div>
+                    </div>
+                </li>
+                            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="wd-30 ht-30 rounded-circle" style="object-fit: cover" src="https://digitalhr.cyclonenepal.com/uploads/admin/avatar/Thumb-67abfa76841c2_132419218" alt="profile">
+
+                    </a>
+                    <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                        <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                            <div class="mb-3">
+                                <img class="wd-80 ht-80 rounded-circle" style="object-fit: cover" src="https://digitalhr.cyclonenepal.com/uploads/admin/avatar/Thumb-67abfa76841c2_132419218" alt="">
+                            </div>
+                            <div class="text-center">
+                                <p class="tx-16 fw-bolder">Admin</p>
+                                <p class="tx-12 text-muted">admin@admin.com</p>
+                            </div>
+                        </div>
+                        <ul class="list-unstyled p-1">
+
+                            <li class="dropdown-item py-2">
+                                <a href="https://digitalhr.cyclonenepal.com/admin/users/1" class="text-body ms-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user me-2 icon-md"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+
+                                                                                    <li class="dropdown-item py-2">
+                                <a class="text-body ms-0 qr-modal" title="App QR " target="_blank" href="https://digitalhr.cyclonenepal.com/admin/showQR">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image me-2 icon-md"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                    <span>App QR</span>
+                                </a>
+                            </li>
+                                                        <li class="dropdown-item py-2">
+                                <a href="https://digitalhr.cyclonenepal.com/admin/logout" onclick="event.preventDefault();
+                                                       document.getElementById('logout-form').submit();" class="text-body ms-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out me-2 icon-md"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Log out
+                                </a>
+                              <form id="logout-form" action="https://digitalhr.cyclonenepal.com/admin/logout" method="POST" style="display: none;">
+                                    <input type="hidden" name="_token" value="huUxXxHtNgDZwmLOOCibes9azJeNiUd1xcSgLbJT" autocomplete="off">                              </form>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+        </ul>
+
+    </div>
+</nav>
+<!-- partial -->
+
+
+
+
+
+
+
+
+
+        <div class="page-content">
+            <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+    <div>
+        <h4 class="mb-3 mb-md-0">
+            Welcome to Attendance Dashboard : Digital HRS        </h4>
+    </div>
+</div>
+            
+    <section class="content">
+        
+        <div id="flashAttendanceMessage" class="d-none">
+            <div class="alert alert-danger errorStartWorking" style="display: none;">
+                <p class="errorStartWorkingMessage"></p>
+            </div>
+
+            <div class="alert alert-danger errorStopWorking" style="display: none;">
+                <p class="errorStopWorkingMessage"></p>
+            </div>
+
+            <div class="alert alert-success successStartWorking" style="display: none;">
+                <p class="successStartWorkingMessage"></p>
+            </div>
+
+            <div class="alert alert-success successStopWorking" style="display: none;">
+                <p class="successStopWorkingMessage"></p>
+            </div>
+        </div>
+
+        <div id="loader" style="display:none;">
+            <div class="loading">
+                <div class="loading-content"></div>
+            </div>
+        </div>
+
+        <div class="row">
+                            <div class=" col-xxl-12 col-xl-12 d-flex">
+                    <div class="row">
+                        <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Total Departments</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>3</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-6 col-lg-6 col-md-6 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Total Employees</h6>
+                                    </div>
+
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>16</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users link-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Total Holidays</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>3</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-umbrella link-icon"><path d="M23 12a11.05 11.05 0 0 0-22 0zm-5 7a3 3 0 0 1-6 0v-7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Paid Leaves</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>82</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text link-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">On Leave Today</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>0</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-minus link-icon"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Pending Leave Requests</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>0</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitch link-icon"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path></svg>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Total Check In Today</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-flex">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>0</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-in link-icon"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4 mb-4 d-flex">
+                            <div class="card w-100">
+                                <div class="card-body text-md-start text-center">
+                                    <div class="d-md-flex justify-content-between align-items-baseline mb-3">
+                                        <h6 class="card-title mb-2 mb-md-0">Total Check Out Today</h6>
+                                    </div>
+                                    <div class="row align-items-center d-md-fle">
+                                        <div class="col-lg-6 col-md-6">
+                                            <h3>0</h3>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out link-icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                        
+        </div>
+                                    <div class="projectManagement">
+                    <h4 class="mb-4">Project Management </h4>
+                    <div class="row">
+                        <div class="col-xxl-6 col-xl-6 d-flex mb-4">
+                            <div class="card card-table flex-fill">
+                                <div class="card-header">
+                                    <h3 class="card-title mb-0">Projects Detail</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="projectChart" style="display: block; box-sizing: border-box; height: 348px; width: 696px;" width="696" height="348"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-6 col-xl-6 d-flex">
+                            <div class="row">
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">Total Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">Pending Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">On Hold Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">In Progress Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">Finished Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xxl-6 col-xl-6 col-lg-4 col-md-4 mb-4">
+                                    <div class="card">
+                                        <div class="card-body text-md-start text-center">
+                                            <h6 class="card-title mb-2">Cancelled Projects</h6>
+                                            <div class="row align-items-center d-md-flex">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <h3>0</h3>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 text-md-end dash-icon mt-md-0 mt-2">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers link-icon"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <div class="row">
+                                    <div class="col-xxl-8 col-xl-8 mb-4 d-flex">
+                        <div class="card card-table flex-fill">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <h3 class="card-title mb-0">Top Clients</h3>
+                                <a href="https://digitalhr.cyclonenepal.com/admin/clients">View All Clients</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table custom-table mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Contact</th>
+                                            <th class="text-center">Project</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                                                    <tr>
+                                                <td class="table-avatar w-35">
+
+                                                    <a href="https://digitalhr.cyclonenepal.com/admin/clients/1" class="avatar">
+                                                        <img alt="" src="https://digitalhr.cyclonenepal.com/uploads/client/Thumb-69d156c421227_bird-colorful-logo-gradient-vector_343694-1365.jpg">
+                                                        <span class="ms-1">Margaret Robbins</span>
+                                                    </a>
+
+                                                </td>
+                                                <td class="text-center">kujazyzum@mailinator.com</td>
+                                                <td class="text-center">
+                                                    569
+                                                </td>
+
+                                                <td class="text-center">
+                                                    0
+                                                </td>
+                                            </tr>
+                                                                                    <tr>
+                                                <td class="table-avatar w-35">
+
+                                                    <a href="https://digitalhr.cyclonenepal.com/admin/clients/2" class="avatar">
+                                                        <img alt="" src="https://digitalhr.cyclonenepal.com/uploads/client/Thumb-69df294fc1784_signal-2025-12-22-234439_003.jpeg">
+                                                        <span class="ms-1">Contractor1</span>
+                                                    </a>
+
+                                                </td>
+                                                <td class="text-center">con1@mshou.com</td>
+                                                <td class="text-center">
+                                                    245344345
+                                                </td>
+
+                                                <td class="text-center">
+                                                    0
+                                                </td>
+                                            </tr>
+                                                                                </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                                    <div class="col-xxl-4 col-xl-4 mb-4 d-flex">
+                        <div class="card card-table flex-fill">
+                            <div class="card-header text-center">
+                                <h3 class="card-title mb-0">Task Details</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <canvas id="tasksChart" style="display: block; box-sizing: border-box; height: 319px; width: 320px;" width="320" height="319"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                            </div>
+
+                            <div class="card card-table flex-fill">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="card-title mb-0">Recent Projects</h3>
+                        <a href="https://digitalhr.cyclonenepal.com/admin/projects">View All Projects</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table custom-table mb-0">
+                                <thead>
+                                <tr>
+                                    <th class="w-25">Title</th>
+                                    <th class="text-center">Date Start</th>
+                                    <th class="text-center">Deadline</th>
+                                    <th class="text-center">Leader</th>
+                                    <th class="text-center">Completion</th>
+                                    <th class="text-center">Priority</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td colspan="100%">
+                                            <p class="text-center"><b>No records found!</b></p>
+                                        </td>
+                                    </tr>
+                                                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                        </section>
+        </div>
+
+        <!-- partial -->
+        <!-- partial:partials/_footer.html -->
+<footer class="footer d-flex flex-column flex-md-row align-items-center justify-content-between px-4 py-3 border-top small">
+    <p class="text-muted mb-1 mb-md-0">Copyright © 2026 <a href="https://cninfotech.com/" target="_blank">Cyclone Nepal</a>.</p>
+</footer>
+<!-- partial -->
+
+
+    </div>
+</div>
+
+<!-- core:js -->
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/core/core.js"></script>
+<!-- endinject -->
+
+<!-- Plugin js for this page -->
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/chartjs/Chart.min.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/jquery.flot/jquery.flot.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<!-- End plugin js for this page -->
+
+<!-- inject:js -->
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/feather-icons/feather.min.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/js/template.js"></script>
+<!-- endinject -->
+
+<!-- Custom js for this page -->
+<script src="https://digitalhr.cyclonenepal.com/assets/js/dashboard-light.js"></script>
+<script src="https://digitalhr.cyclonenepal.com/assets/js/datepicker.js"></script>
+
+
+<!-- End custom js for this page -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- sweet alert -->
+
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/sweetalert2/sweetalert2.min.js"></script>
+
+
+
+
+<script src="https://digitalhr.cyclonenepal.com/assets/js/nepaliDatepicker.min.js" type="text/javascript"></script>
+
+<script>
+    $('div.alert.alert-danger').not('.alert-important').delay(10000).slideUp(900);
+    $('div.alert.alert-success').not('.alert-important').delay(5000).slideUp(900);
+</script>
+
+
+
+<script>
+    $('document').ready(function (){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+
+        $('#notificationsNavBar').click(function(event){
+            event.preventDefault();
+            let url = $(this).data('href');
+            $.get(url, function (data) {
+                let len = 0;
+                if(data.data != null){
+                    len = data.data.length;
+                }
+                if(len > 0) {
+                    $(".check").remove();
+                    for (let i = 0; i < len; i++) {
+                        let title = data.data[i].title
+                        let publishDate = data.data[i].publish_date;
+                        let notification =
+                            "<span class='dropdown-item d-flex align-items-center py-2 check'>"+
+                            "<div class='wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3'>"+
+                            "<i class='icon-bell text-white' data-feather='bell'>"+"</i>"+
+                            "</div>"+
+
+                            "<div class='text-muted  me-2'>"+
+                            "<p>" +title+ "</p>"+
+                            "<p class='tx-12 text-muted publish_date'>" +publishDate+ "</p>"+
+                            "</div>"+
+                            "</span>";
+                        $("#notifications-detail").append(notification);
+                    }
+                }
+
+            });
+        })
+
+        $('#navAdminNotificationCreate').on('click',function(event){
+            let href = $(this).data('href');
+            window.location.href = href;
+        });
+
+        $('#navAdminNotificationList').on('click',function(event){
+            let url = $(this).data('href');
+            window.location.href = url;
+        });
+
+
+
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#nav-search').val('');
+        let currentLI = 0;
+        const keydown = 38;
+        const keyup = 40;
+        const keyEnter = 13;
+
+        $("#nav-search").on("keyup", function (e) {
+            e.preventDefault();
+            let keycode = e.keyCode;
+
+            if(keycode !== keydown && keycode !== keyup){
+                let linksArr = {};
+                $('.sidebar-menu li a').each(function (i) {
+                    let href = $(this).data('href');
+                    if(href !=='#'){
+                        let name = $(this).text().toLowerCase();
+                        linksArr[name] = $(this).data('href');
+                    }
+                });
+
+                let linkKeys = Object.keys(linksArr)
+                let searchQuery = $('#nav-search').val();
+                if (searchQuery.length >= 0) {
+                    $('#nav-search-listing li').remove();
+                    if (searchQuery) {
+                        for (i = 0; i < linkKeys.length; i++) {
+                            let hreflocation = linksArr[linkKeys[i]];
+
+                            if (linkKeys[i].toLowerCase().indexOf(searchQuery) > -1) {
+                                $('#nav-search-listing').
+                                append( '<li id="nav-menu" class="nav-listing list-group-item">' +
+                                    '<a href=" '+hreflocation+' ">'+linkKeys[i]+'</a></li>');
+
+                            }
+                        }
+                    }
+                }
+            }
+
+            //for up down with arrow key highlight/select
+
+            let listItems = document.querySelectorAll("#nav-search-listing li");
+            listItems[currentLI].classList.add("highlight");
+            if(keycode == keydown) {
+                listItems[currentLI].classList.remove("highlight");
+                currentLI = currentLI > 0 ? --currentLI : 0;
+                console.log(currentLI);
+                listItems[currentLI].classList.add("highlight");
+            }
+
+            if(keycode == keyup){
+                listItems[currentLI].classList.remove("highlight");
+                currentLI = currentLI < listItems.length - 1 ? ++currentLI : listItems.length - 1;
+                listItems[currentLI].classList.add("highlight");
+            }
+
+            //redirect to highlighted url on enter key press
+            if(keycode == keyEnter){
+                let url = $('.highlight').find('a').attr('href');
+                window.location.href = url;
+            }
+
+        });
+
+        // ctrl + Q command for focusing in admin search field
+        window.addEventListener("keydown",function (e) {
+            if (e.ctrlKey && e.keyCode === 81){
+                if($('#nav-search').is(":focus")) {
+                    return true;
+                } else {
+                    e.preventDefault();
+                    $('#nav-search').focus();
+                }
+            }
+        });
+
+        // toggle hide and show based on input field focus
+        $(document).click(function(evt) {
+            if ($(evt.target).closest('#admin-search-menu').length === 0) {
+                $('.card-admin-search').hide();
+            }
+        });
+
+        $('#admin-search-menu').focusin(function(e){
+            e.preventDefault();
+            $('.card-admin-search').show();
+        });
+
+    });
+
+
+</script>
+<script>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    $(document).ready(function () {
+        let theme = 'light';
+        loadTheme(theme);
+
+        $('#moon').click(function() {
+            changeTheme();
+        });
+
+        $('#sun').click(function() {
+            changeTheme();
+        });
+
+        function changeTheme() {
+            $.ajax({
+                type: "GET",
+                url: "https://digitalhr.cyclonenepal.com/admin/change-theme",
+                success: function(data) {
+                    $("#themeColor").remove();
+                    loadTheme(data.theme);
+                    location.reload();
+                }
+            });
+        }
+
+        function loadTheme(theme) {
+            if (theme === 'light') {
+                $('head').append('<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/css/style.css" id="themeColor" />');
+                $('#moon').show();
+                $('#sun').hide();
+            } else {
+                $('head').append('<link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/css/style_dark.css" id="themeColor" />');
+                $('#sun').show();
+                $('#moon').hide();
+            }
+        }
+    });
+
+</script>
+
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+
+    <script>
+        let translatedStrings = {"welcome":"Welcome to Attendance Dashboard","total_employees":"Total Employees","total_departments":"Total Departments","total_holidays":"Total Holidays","paid_leaves":"Paid Leaves","on_leave_today":"On Leave Today","pending_leave_requests":"Pending Leave Requests","total_check_in_today":"Total Check In Today","total_check_out_today":"Total Check Out Today","projects_detail":"Projects Detail","total_projects":"Total Projects","pending_projects":"Pending Projects","on_hold_projects":"On Hold Projects","in_progress_projects":"In Progress Projects","finished_projects":"Finished Projects","cancelled_projects":"Cancelled Projects","top_clients":"Top Clients","task_details":"Task Details","recent_projects":"Recent Projects","title":"Title","date_start":"Date Start","deadline":"Deadline","leader":"Leader","completion":"Completion","priority":"Priority","check_in_at":"Check In At","check_out_at":"Check Out At","punch_in":"Punch In","punch_out":"Punch Out","no_records_found":"No records found!","project_management":"Project Management","view_all_clients":"View All Clients","view_all_projects":"View All Projects","error_message":"Error: Unable to process request.","success_message":"Success: Action completed successfully.","name":"Name","email":"Email","contact":"Contact","project":"Project","pending":"Pending","on_hold":"On Hold","in_progress":"In progress","completed":"Completed","cancelled":"Cancelled","search_menu":"Search Menu","latest_notifications":"Latest Notifications","view_all":"View all","profile":"Profile","edit_profile":"Edit Profile","request_leave":"Request Leave","log_out":"Log out","light_mode":"Light mode","dark_mode":"Dark mode","dashboard":"Dashboard","company_management":"Company Management","company":"Company","branch":"Branch","department":"Department","post":"Post","employee_management":"Employee Management","employees":"Employees","logout_requests":"Logout Requests","attendance_section":"Attendance Section","clients":"Clients","task_management":"Task Management","holidays":"Holidays","notice":"Notice","payroll_management":"Payroll Management","payroll":"Payroll","payroll_setting":"Payroll Setting","advance_salary":"Advance Salary","employee_salary":"Employee Salary","leave":"Leave","team_meeting":"Team Meeting","tada":"Tada","shift_management":"Shift Management","office_time":"Office Time","award_management":"Award Management","award_types":"Award Types","awards":"Awards","asset_management":"Asset Management","asset_types":"Asset Types","assets":"Assets","content_management":"Content Management","support":"Support","attendance_methods":"Attendance Methods","routers":"Routers","qr":"QR","nfc":"NFC","settings":"Settings","roles_permissions":"Roles \u0026 Permissions","general_settings":"General Settings","app_settings":"App Settings","notifications":"Notifications","payment_currency":"Payment Currency","feature_control":"Feature Control","salary_component":"Salary Component","salary_group":"Salary Group","salary_tds":"Salary TDS","overtime":"OverTime","overtime_income":"OverTime Income","undertime":"UnderTime","undertime_deduction":"UnderTime Deduction","payment_method":"Payment Method","leave_types":"Leave Types","leave_request":"Leave Request","time_leave_request":"Time Leave Request","company_profile":"Company Profile","update_company":"Update Company","create_company":"Create Company","company_name":"Company Name","company_owner":"Company Owner","address":"Address","email_address":"Email Address","phone_no":"Phone No","website_url":"Website Url","check_office_off_days":"Check Office Off Days","upload_logo":"Upload Logo","update":"Update","save":"Save","title_branch":"Branch","branch_section":"Branch section","branches":"Branches","add_branch":"Add Branch","branch_lists":"Branch Lists","search_by_branch_name":"Search by Branch name","filter":"Filter","reset":"Reset","phone":"Phone","total_employee":"Total Employee","action":"Action","are_you_sure_change_status":"Are you sure you want to change status?","are_you_sure_delete_branch":"Are you sure you want to Delete Branch?","branch_create":"Branch Create","branch_update":"Branch Update","branch_name":"Branch Name","required_field":"Required field","branch_head":"Branch Head","select_branch_head":"Select Branch Head","phone_number":"Phone No","branch_location_latitude":"Branch Location Latitude","enter_branch_location_latitude":"Enter Branch Location Latitude","branch_location_longitude":"Branch Location Longitude","enter_branch_location_longitude":"Enter Branch Location Longitude","status":"Status","select_status":"Select status","active":"Active","inactive":"In-Active","create":"Create","department_section":"Department section","departments":"Departments","add_department":"Add Department","department_lists":"Department Lists","search_by_department_name":"Search by Department name","select_branch":"Select Branch","edit":"Edit","delete":"Delete","are_you_sure_delete_department":"Are you sure you want to Delete Department ?","edit_department":"Edit Department","button_back":"Back","breadcrumb":"Breadcrumb","update_department":"Update Department","create_department":"Create Department","department_name":"Department Name","department_head":"Department Head","select_department_head":"Select Department Head","create_update_department":"Create\/Update Department","post_section":"Post section","posts":"Posts","add_post":"Add Post","search_by_department":"Search by department","search_by_post_name":"Search by Post name","post_name":"Post Name","post_empty":"Post Empty","edit_post_title":"Edit Post","create_post_title":"Create Post","department_label":"Department","post_name_label":"Post Name","status_label":"Status","select_department":"Select Department","active_option":"Active","inactive_option":"Inactive","update_update_button":"Update Post","change_status_confirmation":"Are you sure you want to change status?","delete_post_confirmation":"Are you sure you want to delete post?","employee_list_title":"Employee List","employees_title":"Employees","employees_action":"Lists","add_employee":"Add Employee","employee_section":"Employee section","employee_create":"Employee create","employee_name":"Employee name","employee_email":"Employee email","employee_phone":"Employee phone number","full_name":"Full Name","designation":"Designation","role":"Role","shift":"Shift","workplace":"Workplace","is_active":"Is Active","edit_detail":"Edit Detail","delete_user":"Delete User","change_password":"Change Password","force_logout":"Force Log Out","all_fields_required":"All (\u003Cspan style=\u0022color: red\u0022\u003E*\u003C\/span\u003E) fields are required","personal_detail":"Personal Detail","employee_code":"Employee Code","enter_name":"Enter name","enter_employee_address":"Enter Employee Address","enter_email":"Enter email","dob":"Date Of Birth","gender":"Gender","select_gender":"Select Gender","marital_status":"Marital Status","choose_marital_status":"Choose Marital Status","upload_avatar":"Upload Avatar","description":"Description","username":"Username","enter_username":"Enter username","password":"Password","enter_password":"Enter Password","select_role":"Select Role","company_detail":"Company Detail","supervisor":"Supervisor","employment_type":"Employment Type","select_employment_type":"Select Employment Type","joining_date":"Joining Date","enter_joining_date":"Enter Joining Date","workspace":"WorkSpace","select_workspace":"Select Work Place","field":"Field","office":"Office","leave_detail":"Leave Detail","leave_allocated":"Leave Allocated","assigned_leaves":"Assigned Leaves","no_of_days":"No. of Days","total_leave_days":"Total Leave Days","bank_detail":"Bank Detail","bank_name":"Bank Name","bank_account_number":"Bank Account Number","account_holder_name":"Account Holder Name","bank_account_type":"Bank Account Type","select_account_type":"Select Account Type","create_user":"Create User","update_user":"Update User","new_password":"New Password","enter_new_password":"Enter new password","confirm_password":"Confirm Password","confirm_password_placeholder":"Confirm password","submit":"Submit","user_change_password":"User Change Password","confirm_delete_employee":"Are you sure you want to delete the employee?","confirm_force_logout":"Are you sure you want to force logout the user?","confirm_change_workplace":"Are you sure you want to change the workplace?","select_supervisor":"Select Supervisor","select_office_time":"Select Office Time","select_option":"Select an Option","enter_address":"Please enter the address.","enter_valid_email":"Please enter a valid email address.","enter_phone_number":"Please enter the phone number.","create_employee":"Create Employee","add":"Add","edit_user_detail":"Edit User Detail","show_user_details":"Show User Details","detail":"Detail","back":"Back","user_detail":"User Detail","date_of_birth":"DOB","not_applicable":"N\/A","office_detail":"Office Detail","home":"Home","account_detail":"Account Detail","account_number":"Account Number","account_type":"Account Type","account_holder":"Account Holder","not_available":"N\/A","logout_request_status":"Logout Request Status","take_action":"Take action","confirm_accept_logout_request":"Are you sure you want to Accept Logout Request ?","attendance":"Attendance","employee_attendance_lists":"Employee Attendance Lists","attendance_of_the_day":"Attendance Of The Day","date_placeholder_bs":"yy\/mm\/dd","csv_export":"CSV Export","attendance_status":"Attendance Status","attendance_by":"Attendance By","show_detail":"Show Detail","show_checkin_location":"Show Checkin Location","show_checkout_location":"Show Checkout Location","checkin":"checkin","checkout":"checkout","approved":"Approved","rejected":"Rejected","self":"Self","admin":"Admin","edit_attendance_time":"Edit attendance time","employee_attendance_detail":"Employee Attendance Detail","attendance_of":"Attendance Of","total_days_in_month":"Total Days In Month","present_days":"Present Days","present":"Present","absent_days":"Absent Days","weekend":"Weekend","weekend_days":"Weekend Days","holiday_days":"Holiday Days","leave_days":"Leave Days","working_hours":"Working Hours","worked_hours":"Worked Hours","attendance_details_of":"Attendance Details of :month","all_month":"All Month","worked_hour":"Worked Hour","add_attendance_time":"Add attendance time","confirm_change_attendance_status":"Are you sure you want to change Attendance Status?","check_in":"Check In","check_out":"Check Out","attendance_title":"Attendance","attendance_action":"Employee Attendance Detail","filter_placeholder":"Attendance year e.g : :min_year","csv_export_button":"CSV Export","total_days":"Total Days In Month","total_day":"Total Days","attendance_details":"Attendance Details of :monthName","date":"Date","change_attendance_status":"Change Attendance Status","create_attendance":"Create Attendance","admin_remark":"Admin Remark","edit_attendance":"Edit Attendance","admin_edit_remark":"Admin Edit Remark","confirm_check_in":"Are you sure you want to Check In Employee?","confirm_check_out":"Are you sure you want to Check Out Employee?","edit_attendance_title":"Edit Attendance(:name) Time of :date","create_attendance_title":"Create Attendance(:name) Time of :date","total_worked_hours":"Total Worked Hours","attendance_report":"Attendance Report","client_listing":"Client Listing","add_client":"Add Client","client_name":"Client Name","client_email":"Client Email","edit_client_detail":"Edit Client Detail","show_client_detail":"Show Client Detail","delete_client_detail":"Delete Client Detail","client_invoices":"Client Invoices","client_detail":"Client Detail:","client_project_lists":"Client Project Lists:","country":"Country","edit_client":"Edit Client","create_client":"Create Client","client_section":"Client section","client_contact":"Client Contact Number","client_address":"Address","client_country":"Country","upload_profile":"Upload Client Profile","enter_client_name":"Enter Client Name","enter_client_email":"Enter Client Email","enter_contact_number":"Enter Contact Number","enter_client_address":"Enter Client Address","enter_country":"Enter Country","confirm_status_change":"Are you sure you want to change status?","confirm_delete_client":"Are you sure you want to delete Client Detail?","lists":"Lists","create_project":"Create Project","project_filter":"Project Filter","search_by_project":"Search by Project","search_by_status":"Search by Status","search_by_priority":"Search By Priority","client":"Client","all_tasks":"All Tasks","completed_tasks":"Completed Tasks","days_left":"days left","team_member":"Team Member","start_date":"Start Date","due_date":"Due Date","view":"View","projects":"Projects","assign_employee":"Assign Employee","client_contact_number":"Client Contact Number","upload_client_profile":"Upload Client Profile","project_name":"Project Name","project_start_date":"Project Start Date","project_deadline":"Project Deadline","project_status":"Project Status","select_project_status":"Select Project Status","project_cost":"Project Cost","select_priority":"Select Priority","estimated_hours":"Estimated Hours","select_client":"Select Client","upload_project_logo":"Upload Project Logo","uploaded_files_images":"Uploaded Files And Images","no_project_file_uploaded":"No project file uploaded","update_project":"Update Project","project_leader":"Project Leader","assign_member":"Assign Member","edit_project":"Edit Project","project_document":"Project Document","upload_documents":"Upload Documents","upload_project_attachments":"Upload Project Attachments","show_project_detail":"Show Project Detail","upload_attachments":"Upload Attachments","project_attachments":"Project Attachments","uploaded_image_files":"Uploaded image files","no_project_image_found":"No Project Image found","uploaded_files":"Uploaded files","no_project_files_found":"No Project Files found","project_tasks_lists":"Project Tasks Lists","project_summary":"Project Summary","cost":"Cost:","total_hours":"Total Hours:","created":"Created:","remaining_days":"Remaining Days:","project_leaders":"Project Leaders","update_leader":"Update Leader","project_members":"Project Members","update_member":"Update Member","project_client_detail":"Project Client Detail","delete_project_detail":"Are you sure you want to Delete Project Detail?","delete_project_document":"Are you sure you want to Delete Project Document?","search_by_member":"Search by member","add_employee_to_project":"Add employee to project","tasks":"Tasks","task_filter":"Task Filter","search_by_task_name":"Search by Task Name","not_started":"Not Started","create_tasks":"Create Tasks","end_date":"End Date","task_name":"Task Name","enter_task_name":"Enter Task Name","select_project":"Select Project","task_start_date":"Task Start Date","task_start_time":"Task Start Time","task_end_date":"Task End Date","task_end_time":"Task End Time","task_status":"Task Status","select_task_status":"Select Task Status","uploaded_files_and_images":"Uploaded Files and Images","task_attachments":"Task Attachments","update_task":"Update Task","create_task":"Create Task","mention":"mention","comment":"Comment","close":"Close","write_comment":"write a comment","reply":"Reply","delete_confirm":"Are you sure you want to Delete:title ?","task_member_placeholder":"Assign member to task","project_placeholder":"Select Project","project_filter_placeholder":"Search by project","task_name_placeholder":"Search by Task Name","change_task_status_confirm":"Are you sure you want to change task active status ?","change_status_confirm":"Are you sure you want to change status ?","delete_task_detail_confirm":"Are you sure you want to Delete Task Detail ?","create_checklist_text":"Create Checklist","close_checklist_text":"Close","remove_checklist_text":"Remove","remove_checklist_title":"remove checklist","view_all_comments":"View All Comments","comments":"Comments","edit_task":"Edit Task","edit_task_detail":"Edit Task Detail","show_task_detail":"Show Task Detail","task_edit":"Task Edit","create_checklist":"Create Checklist","upload_attachment":"Upload Attachment","total_checklist":"Total Checklist","completed_checklist":"Completed Checklist","task_checklist_lists":"Task Checklist Lists","assigned_to":"Assigned To","create_task_checklist":"Create Task Checklist","enter_checklist_title":"Enter Checklist Title","select_member":"Select Member","add_more_checklist":"Add More Checklist","image":"Image","file":"File","edit_checklist":"Edit Checklist","delete_checklist":"Delete Checklist","checklist":"Checklist","edit_task_checklist":"Edit Task Checklist","checklist_name":"Checklist Name","assign_task_checklist":"Assign Task Checklist","task_summary":"Task Summary","task_members":"Task Members","task_attachment_title":"Task Attachment","upload_attachment_action":"Upload Attachment","upload_task_attachments":"Upload Task Attachments","upload_task_attachments_text":"Upload Task Attachments","choose_file_text":"Choose file","holiday_section":"Holiday section","event":"Event","event_date":"Event Date","is_public_holiday":"Is Public Holiday?","confirm_delete_holiday":"Are you sure you want to Delete Holiday Detail?","holiday_detail_title":"Holiday Detail","holiday":"Holiday","csv_import":"CSV Import","import":"Import","holiday_detail_csv":"Holiday Detail CSV","holiday_csv_example":"Holiday CSV Example","add_holiday":"Add Holiday","import_holiday_csv":"Import Holiday CSV","holiday_filter":"Holiday Filter","event_name":"Event name","leave_requested_year":"Leave Requested year","holiday_detail":"Holiday Detail","notices_section":"Notice Section","notice_title":"Notice Title","notice_description":"Notice Description","notice_receiver":"Notice Receiver","send_notice":"Send Notice","all_employees":"All Employees","create_notice":"Create Notice","edit_notice":"Edit Notice","notices":"Notices","receiver":"Receiver","published_from":"Published From","publish_to":"Publish To","publish_date":"Publish Date","show_notice_content":"Show Notice Content","delete_notice_detail":"Delete Notice Detail","notice_lists":"Notice Lists","confirm_change_notice_status":"Are you sure you want to change status for Notice?","confirm_delete_notice":"Are you sure you want to Delete Notice?","confirm_send_notice":"Are you sure you want to Send Notice?","notice_detail_modal_title":"Notice :title Detail","employee_payroll":"Employee Payroll","payroll_generate":"Payroll Generate","payroll_create":"Payroll Create","payroll_edit":"Payroll Edit","select_year":"Select Year","salary_cycle":"Salary Cycle","salary_month":"Salary Month","salary_week":"Salary Week","select_week":"Select Week","include_tada":"Include TADA","include_advance_salary":"Include Advance Salary","use_attendance":"Use Attendance","generate":"Generate","clear":"Clear","report":"Report:","duration":"Duration","payroll_summary":"Payroll Summary","total_basic_salary":"Total Basic Salary:","total_net_salary":"Total Net Salary:","total_allowance":"Total Allowance:","total_deduction":"Total Deduction:","total_overtime":"Total Overtime:","total_undertime":"Total Undertime:","paid_by":"Paid By","net_salary":"Net Salary","paid_on":"Paid On","pay_button":"Pay","select_payment_method.":"Please select a payment method.","confirm_delete_payroll":"Are you sure you want to Delete Employee Payroll ?","confirm_generate_payroll":"Are you sure you want to generate payroll?","confirm_change_cycle":"Are you sure you want to change salary cycle ?","payment_title":"Make Payment","payment_method_placeholder":"Select Payment Method","payment_date":"Payment Date","hourly_rate":"Hourly Rate","hourly":"Hourly","working_hours_in_week":"Working Hours in Week","annual_salary":"Annual Salary (CTC)","annual":"Annual","basic_salary":"Basic Salary","fixed_allowance":"Fixed Allowance","total":"Total","net_total":"Net Total","earnings":"Earnings","deductions":"Deductions","create_salary":"Create Salary","edit_salary":"Edit Salary ","add_salary":"Add Salary","calculation_type":"Calculation Type","monthly_amount":"Monthly Amount","annual_amount":"Annual Amount","salary_slip":"Salary Slip","edit_salary_slip":"Edit Salary Slip","payslip":"Payslip","for_the_month_of":"for the month of","from":"from","to":"to","employee_id":"Employee ID","earning":"Earning","deduction":"Deduction","actual_salary":"Actual Salary","total_earning":"Total Earning","actual_salary_formula":"(Total Earning - Total Deductions)","bonus":"Bonus","taxable_salary":"Taxable Salary","taxable_salary_formula":"(Actual Salary + Bonus)","tax":"Tax","salary_after_tax":"Salary After Tax","expenses_claim":"Expenses Claims (TADA)","absent":"Absent","absent_deduction_formula":"((grossSalary\/ total days) * absent days)","net_salary_formula":"Net Salary = (Actual Salary - Advance Salary + TADA)","monthly":"monthly","weekly":"weekly","salary_increment":"Salary Increment","increment":"Increment","current_salary":"Current Salary","annual_increment_percent":"Annual Increment %","annual_increment_amount":"Annual Increment Amount","revised_salary_label":"Revised Salary","fiscal_year_label":"Increment for Fiscal Year","applicable_from_label":"Applicable From (Date)","applicable_to_label":"Applicable To (Date)","remark":"Remark","fiscal_year":"Fiscal Year","select_fiscal_year":"Select Fiscal Year","list":"List","employee_salary_filter":"Employee Salary Filter","salary_review_history":"Salary Review History","increase_salary":"Increase Salary","all":"All","employee_payslip":"Employee Payslip","salary_from":"Salary From","salary_to":"Salary To","unpaid_leave":"Unpaid Leave","paid_leave":"Paid Leave","employee_gross_salary":"Employee Gross Salary","salary_increment_log":"Salary Increment Log","log":"Log","salary_revised_on":"Salary Revised On","increment_by":"Increment By","increment_value":"Increment Value","old_salary":"Old Salary","new_salary":"New Salary","date_to":"Date To","date_from":"Date From","salary_increment_remark":"Salary Increment Remark","advance_salary_requests":"Advance Salary Requests","advance_salary_request_filter":"Advance Salary Requests Filter","delete_confirmation":"Are you sure you want to Delete ?","payslip_for_the_month_of":"Payslip for the Month of","absent_deduction":"Absent Deduction","is_paid":"Is Paid ?","released_on":"Released On","requested_on":"Requested On","released_amount":"Released Amount","requested_amount":"Requested Amount","search_by_month":"Search by Month","search_by_employee_name":"search by employee name","advance_salary_detail":"Advance Salary Detail","is_settled":"Is Settled","verified_by":"Verified By","amount_released_date":"Amount Released Date","advance_requested_date":"Advance Requested Date","total_released_amount":"Total Released Amount","total_request_amount":"Total Request Amount","employee":"Employee","select_employee":"Select Employee","advance_salary_request_detail":"Advance Salary Request Detail","proof_of_advance_salary_payment":"Proof Of Advance Salary Payment","attachments":"Attachments","processing":"Processing","tax_report":"Tax report","employee_tax_report":"Employee Tax report","tax_report_edit":"Tax Report Edit","tax_report_detail_of":"Tax Report Detail of","tax_report_detail":"Tax Report Detail","salary_sheet":"Salary Sheet","particular":"Particular","income":"Income","tax_data_not_available":"No tax data available for the current marital status","remain_tds_formula":"(Total Due Tds \/ No of remaining months)","remaining_month":"Remaining Month","tds_calculation_msg":"TDS Calculation for Current(Calculating Month)","total_due_tds":"Total Due TDS","total_paid_tds":"Total Paid TDS","total_payable_tds":"Total Payable TDS","other_discount":"Other Discount","female_discount":"Female Discount","medical_claim":"Medical Claim","less":"less","less_tax_deduction":"less: Tax Deduction","tax_amount":"Tax Amount","percent":"Percent","tax_calculation_on_taxable_income":"Tax Calculation on Taxable Income","taxable_income":"Taxable Income","ssf_contribution":"SSF Contribution","ssf_contribution_salary":"SSF Contribution Salary","total_retirement_contribution_allowed":"Total Retirement Contribution Allowed","total_income":"Total Income","amount":"Amount","additional_information":"Additional Information","total_payable":"Total Payable","tds_paid":"TDS Paid","ssf_deduction":"SSF Deduction","tax_report_generate":"Tax Report Generate","print":"Print","gross_earnings":"Gross Earnings","tax_payable":"Tax Payable","advance_salary_limit":"Advance Salary Limit","select_month":"Select Month","applicable_month":"Applicable Month","value":"Value","value_type":"Value Type","enter_bonus_type":"Enter Bonus Type","salary_components":"Salary Components","add_bonus":"Add Bonus","max_daily_ot":"Max. Daily OT","assign_overtime_to_employee":"Assign OverTime to Employee","overtime_pay_rate":"OverTime Pay Rate (per hour)","overtime_rate_percent":"OverTime Rate Percent (per hour)","placeholder_overtime_pay_rate":"Enter OverTime Pay Rate","placeholder_overtime_rate_percent":"Enter OverTime Rate percent","rate_type":"Rate Type","select_rate_type":"Select Rate Type","ot_valid_after_hour":"OverTime Valid After ? Hour","placeholder_ot_valid_after_hour":"Enter Hours After which OT is valid","monthly_ot":"Max Monthly OverTime Hour","placeholder_monthly_ot":"Enter Max Monthly OverTime Hour","weekly_ot":"Max Weekly OverTime Hour","placeholder_weekly_ot":"Enter Max Weekly OverTime Hour","daily_ot":"Max Daily OverTime Hour","placeholder_daily_ot":"Enter Max Daily OverTime Hour","pay_percent":"Pay Percent\/Rate","employee_count":"Employee Count","hour":"Hour","currency_setting":"Currency Setting","payroll_currency":"Payroll Currency","choose_payroll_currency":"Choose Payroll Currency","add_payment_method":"Add Payment Method","payment_method_name":"Payment Method Name","update_payment_method":"Update Payment Method","component_value":"Component Value","component_type":"Component Type","add_salary_component":"Add Salary Component","apply_for_all":"Apply For All","component_value_annual":"Component Value (Annual)","select_value_type":"Select Value Type","select_component_type":"Select Component Type","enter_salary_component_name":"Enter Salary Component Name","add_salary_group":"Add Salary Group","delete_confirm_salary_group":"Are you sure you want to Delete Group Detail ?","assign_employee_to_group":"Assign Employee To Group","choose_salary_component":"Choose Salary Component","assign_salary_components":"Assign Salary Components","enter_salary_group_name":"Enter Salary Group Name","add_more_tds_detail":"Add More TDS Detail","enter_tds_in_percent":"Enter TDS In Percent","enter_annual_salary_to":"Enter Annual Salary To","enter_annual_salary_from":"Enter Annual Salary From","select_marital_status":"Select Marital Status","create_salary_tds":"Salary TDS Create","update_salary_tds":"Salary TDS Update","salary_tds_detail_for_single":"Salary TDS Detail For Single","add_salary_tds":"Add Salary TDS","annual_salary_to":"Annual Salary To","annual_salary_from":"Annual Salary From","tds":"TDS(%)","salary_tds_detail_for_married":"Salary TDS Detail For Married","ssf":"SSF","employee_contribution":"Employee Contribution","office_contribution":"Office Contribution","assign_undertime_to_employee":"Assign UnderTime to Employee","enter_title":"Enter Title","undertime_after_minute":"Minutes After which Under Time is Applied","placeholder_ut_after":"Enter Hours after which UT is applied","penalty_type":"Penalty Type","select_penalty_type":"Select Penalty Type","penalty_percent":"Penalty Percent (per hour)","penalty_percent_placeholder":"Enter Under Time Penalty Percent","penalty_rate":"Penalty Rate (per hour) ","penalty_rate_placeholder":"Enter Under Time Penalty Rate","leave_type_section":"Leave Type section","select_leave_type":"Select Leave Type","leave_type":"Leave Type","leave_allocated_days":"Leave Allocated Days","allocated_days":"Allocated Days","is_paid_leave":"Is Paid Leave","leave_type_name":"Leave Type Name","leave_type_placeholder":"Enter Leave Type","add_leave_type":"Add Leave Type","type":"Type","edit_leave_type_detail":"Edit Leave Type Detail","delete_leave_type":"Delete Leave Type","delete_leave_confirmation":"Are you sure you want to Delete Leave Type ?","leave_request_section":"Leave Request section","approve":"Approve","reject":"Reject","from_date":"From Date","to_date":"To Date","start_time":"Start Time","end_time":"End Time","reason":"Reason","requested_for":"Requested For","requested_by":"Requested By","requested_days":"Requested Days","requested_date":"Requested Date","all_status":"All Status","all_leave_type":"All Leave Type","leave_request_filter":"Leave Request Filter","create_leave_request":"Create Leave Request","leave_reason":"leave reason","referred_by":"Referred By","leave_date":"Leave Date","time_leave_request_filter":"Time Leave Request Filter","create_time_leave_request":"Create Time Leave Request","time_leave_request_section":"Time Leave Request section","time_leave_status_update":"Time Leave Status Update","team_meeting_section":"Team Meeting section","update_and":"update And","create_and":"Create And","send":"Send","meeting_participator":"Meeting participator","image_hint":"Image is recommended to be in landscape form","meeting_description":"Meeting Description","upload_image":"Upload Image","meeting_start_time":"Meeting Start Time","meeting_date":"Meeting Date","meeting_venue":"Meeting Venue","enter_venue_name":"Enter venue Name","enter_content_title":"Enter Content Title","meeting_title":"Meeting title","delete_team_meeting_confirmation":"Are you sure you want to Delete Team Meeting ?","image_delete_confirmation":"Are you sure you want to Remove Image ?","create_team_meeting":"Create Team Meeting","delete_team_meeting":"Delete team meeting detail","edit_meeting_detail":"Edit meeting detail","show_team_meeting":"show team meeting content","participators":"Participators","participator":"Participator","team_meeting_filter":"Team Meeting Filter","agenda":"Agenda","creator":"Creator","tada_attachment":"Tada Attachment","upload_tada_attachment":"Upload Tada Attachment","accepted":"Accepted","tada_status_change":"Are you sure you want to change tada settlement status ?","delete_tada_confirm":"Are you sure you want to Delete :title?","uploaded_attachment":"Uploaded Attachment","no_attachment_file":"No Attachment file","total_expense":"Total Expense","create_tada":"Create Tada","edit_tada":"Edit Tada","tada_listing":"Tada Listing","tada_filter":"Tada Filter","submitted_date":"Submitted Date","expense":"Expense(","tada_detail":"Tada Detail","verified_date":"Verified Date","tada_summary":"Tada Summary","update_status":"Update Status","category":"Category","select_category":"Select Category","opening_time":"Opening Time","closing_time":"Closing Time","checkin_checkout_rule":"CheckIn\/Out Rule","early_check_in":"Early Check In","check_in_before":"Can check in before (in minute)","checkin_before":"Check in Before","enter_check_in_before":"Enter Can check in before (in minute)","early_check_out":"Early Check out","check_out_before":"Can check out before (in minute)","checkout_before":"Check out Before","enter_check_out_before":"Enter Can check out before (in minute)","late_check_in":"Late Check In","check_in_after":"Can check in after (in minute)","checkin_after":"Check in After","enter_check_in_after":"Enter Can check in after (in minute)","late_check_out":"Late Check out","checkout_after":"Check out After","check_out_after":"Can check out after (in minute)","enter_check_out_after":"Enter Can check out after (in minute)","enter_shift_name":"Enter Shift Name","select_shift":"Select Shift","delete_office_time_confirm":"Are you sure you want to Delete Office Schedule ?","office_time_detail":"Office Time Detail","office_schedule":"Office Schedule","add_office_time":"Add Office Time","award_distributed":"Award Distributed","add_award_types":"Add Award Types","gift_item":"Gift item","awarded_date":"Awarded Date","award":"Award","award_name":"Award Name","select_award_type":"Select Award Type","enter_gift_item":"Enter gift item","award_base":"Award Base","select_award_base":"Select Award Base","awarded_by":"Awarded By","enter_awarded_by":"Enter Awarded By","award_description":"Award Description","gift_description":"Gift Description","reward_code":"Reward Code","enter_reward_code":"Enter Reward Code","add_award":"Add Award","attachment":"Attachment","award_lists":"Award Lists","add_asset_types":"Add Asset Types","asset_item_count":"Asset Item Count","asset_type":"Asset Type","asset_name":"Asset Name","purchased_date":"Purchased Date","is_working":"Is Working","is_available":"Is Available","asset":"Asset","select_asset_type":"Select Asset Type","assigned_date":"Assigned Date","is_available_for_employee":"Is Available For Employee","select_availability":"Select Availability","warranty_end_date":"Warranty End Date","warranty_available":"Warranty Available","select_warranty_availability":"Select  Warranty Availability","asset_serial_number":"Asset Serial Number","enter_asset_serial_number":"Enter Asset Serial Number","asset_code":"Asset Code","enter_asset_code":"Enter Asset Code","change_availability_status":"Are you sure you want to change Availability status ?","delete_asset_confirm":"Are you sure you want to Delete :title?","add_asset":"Add Asset","asset_image":"Asset Image","asset_assigned_employee":"Asset Assigned Employee","assets_filter":"Assets Filter","working_status":"Working Status","availability_status":"Availability Status","yes_available":"Yes Available","notavailable":"Not Available","purchased_from":"Purchased From","purchased_to":"Purchased To","content_section":"Content section","content":"Content","content_type":"Content Type ","content_title":"Content Title","select_content_type":"Select Content Type","delete_content_confirm":"Are you sure you want to Delete Static Page Content ?","company_static_content":"Company Static Content","add_content":"Add Content","delete_support_confirm":"Are you sure you want to Delete :title?","ticket_lists":"Ticket Lists","query_by":"Query By","concerned_department":"Concerned Department","unseen":"Unseen","read_status":"Read Status","seen":"Seen","query_status":"Query Status","support_filter":"Support Filter","query_lists":"Query Lists","department_support_requested_from":"Department Support Requested From","department_support_requested_to":"Department Support Requested To","change_query_status":"Change Query Status","router_section":"Router Section","router_bssid":"Router BSSID","router":"Router","router_detail":"Router Detail","add_router":"Add Router","scan_me":"Scan Me","attendance_qr":"Attendance QR","qr_image":"QR Image","add_qr":"Add QR","qr_section":"QR section","nfc_section":"NFC section","created_by":"Created By","role_section":"Role section","authorize_backend_login":"Authorize Backend Login","role_name":"Role Name","permissions":"Permissions","check_all":"Check All","module":"Module","add_role":"Add Role","assign_permissions":"Assign Permissions","confirm_role_deletion":"Are you sure you want to Delete Role ?","can_login":"Can Login","permission_setting":"Permission Setting","assign":"Assign","general_setting_section":"General Setting section","general_setting":"General Setting","export_database_data":"Export Database Data","check_router_bssid":"Check Router BSSID","fiscal_years":"Fiscal Years","year":"Year","add_fiscal_year":"Add Fiscal Year","notification_section":"Notification section","confirm_notification_send":"Are you sure you want to Send Notification ?","notification":"Notification","published_date":"Published Date","all_types":"All Types","notification_lists":"Notification Lists","notified_member":"Notified Member","notification_title":"Notification Title","notification_description":"Notification Description","send_notification":"Send Notification","enter_notification_title":"Enter Notification Title","app_setting":"App Setting","sn":"SN","group":"Group","export_table_data":"Export Table Data","leave_requests":"Leave Requests","employee_lists":"Employee Lists","attendances":"Attendances","confirm_change_status":"Are you sure you want to change status?","yes":"Yes","no":"No","invalid_login_credentials":"Invalid Login Credentials !","authenticated":"Authenticated","user_detail_not_found":"User Detail Not Found","partial_logout_successful":"Partial Logout Successful","data_found":"Data Found","advance_salary_pending_error":"Another advance salary cannot be requested until the previous advance request is settled.","data_updated_successfully":"Data updated successfully","user_updated_advance_salary_request":":name has updated an advance salary request detail","data_created_successfully":"Data created successfully","advance_salary_request_alert":"Advance Salary Request Alert","user_submitted_advance_salary_request":":name has submitted an advance salary request of amount :amount","check_out_successful":"Check out successful","check_out_notification":"Check Out Notification","check_in_successful":"Check in successful","check_in_notification":"Check In Notification","not_checked_in_yet":"Not checked in yet","alert_multi_checkin_shift":"Sorry! Employee cannot check in twice in a shift.","checkout_alert_for_shift":"Employee already checked out for the shift","alert_checkin":"Sorry ! employee cannot check in twice a day.","checkout_alert":"Employee already checked out for today","attendance_alert_status":":status already done","employee_checked_in":":name checked in at :time","employee_checked_out":":name has checked out at :time","has_worked_for":"and has worked for :time","multi_checkout_warning":"You have reached the maximum number of check-ins and check-outs allowed for today.","employee_checked_out_and_worked":":name has checked out at :check_out_time and has worked for :worked_time","invalid_attendance_type":"Invalid attendance attendance_type.","invalid_qr":"Invalid QR or QR is not available","invalid_nfc":"Invalid NFC token or NFC is not available","validation_failed":"Validation failed","leave_request_cancelled":"Leave request cancelled successfully","leave_request_cannot_be_cancelled":"Leave request cannot be cancelled once it is updated from pending state.","leave_request_notification":"Leave Request Notification","leave_request_submitted":":name has requested leave from :start_time to :end_time on :issue_date. Reason: :reasons","leave_request_submitted_successfully":"Leave request submitted successfully","leave_request_cancelled_successfully":"Leave request cancelled successfully","leave_request_submit":":name has requested :no_of_days day(s) leave from :leave_from on :leave_requested_date. Reason: :reasons","nfc_token_already_exist":"NFC token already exist.","nfc_added_successfully":"NFC added successfully","updated_successfully":"Updated Successfully","successfully_sent_notification":"successfully sent notification","data_not_found":"Data not Found","content_not_found":"Content Not found","support_notification":"Support Notification","support_request_submitted":":name has requested for support.","query_submitted_successfully":"Query Submitted Successfully","attachment_detail_not_found":"Attachment Detail Not Found","cannot_delete_attachment_detail":"Cannot Delete Attachment Detail Once Verified","upload_another_attachment_before_delete":"Please upload another attachment before deleting.","attachment_deleted_successfully":"Attachment Deleted successfully","tada_update_alert":"You cannot update the detail once verified,Please contact administrator","tada_notification":":name has submitted a new TADA for :title","tada_detail_notification":":name has updated :title submitted TADA detail","tada_alert":"Tada Alert","status_changed_successfully":"Status changed successfully","task_detail_not_found":"Task detail not found","status_updated_successfully":"Status updated successfully","comment_notification":"Comment Notification","task_mention":"You are mentioned in task :task  :type","comment_reply":"comment reply","comment_reply_deleted_successfully":"Comment Reply Deleted Successfully","comment_deleted_successfully":"Comment Deleted Successfully","comment_added_successfully":"Comment Added Successfully","invalid_base64_image":"Base64 value is not a valid image","demo_version":"This is a demo version. Please buy the application to use the full feature","user_not_found":"User Detail Not Found","profile_updated":"Profile Updated Successfully","incorrect_current_password":"Incorrect current password","new_password_same_as_old":"New password cannot be old password","password_changed":"Password Changed Successfully","leave_approval":"Leave Approval","leave_approval_list":"Leave Approval List","add_leave_approval":"Add Leave Approval","subject":"Subject","related":"Related","select_related":"Select Related","max_days_to_sign":"Maximum number of days to sign","notification_recipient":"Notification Recipient","select_notification_recipient":"Select Notification Recipient","approval_process":"Approval process","approver":"Approver","select_approver":"Select Approver","head_of_department":"Head of Department","specific_personnel":"Specific Personnel","applicable_from":"Applicable From","event_section":"Event section","event_title":"Event Title","event_location":"Event Location","event_start_date":"Event Start Date","event_start_time":"Event Start Time","event_end_date":"Event End Date","event_end_time":"Event End Time","all_departments":"All Department","delete_event_confirmation":"Are you sure you want to delete this event ?","create_event":"Create Event","show_event":"Show Event","enter_event_title":"Enter Event Title","edit_event_detail":"Edit Event Detail","delete_event":"Delete Event","event_calendar":"Event Calendar","training_types":"Training Types","select_training_type":"Select Training Type","training":"Training","select_trainer":"Select Trainer","trainer":"Trainer","add_trainer":"Add Trainer","add_training":"Add Training","trainer_lists":"Trainer List","training_list":"Training List","total_training":"Total Training","training_type":"Training Type","training_management":"Training Management","add_training_types":"Add Training Types","training_date":"Training Date","trainer_type":"Trainer Type","select_trainer_type":"Select Trainer Type","expertise":"Field of Expertise","certificate":"Certificate","contact_number":"Contact Number","training_for":"Training for","time":"Time","updated_by":"Updated By","select_task":"Select Task","event_host":"Event Host","host":"Host","location":"Location","event_list":"Event List","total_tasks":"Total Task","applicable_to_tax_report":"Salary component which are applicable for all will be used in tax report.","no_departments_found":"Department Not Found","error_loading_departments":"Error Loading Departments","no_employees_found":"Employees not Found","update_send":"Update and Send Notification","create_send":"Create and Send Notification","admin_permission_msg":"If this option is clicked then all the hierarchy steps will be bypassed and users with this role will be able to view and edit all leaves, Keep this option for special type of roles such as HR","coming_soon":"Coming soon","assign_trainer_section":"Trainer Assign Section","assign_trainer":"Assign Trainer","export_csv":"Export CSV","termination_types":"Termination Types","select_termination_type":"Select Termination Type","termination":"Termination","add_termination":"Add Termination","termination_list":"Termination List","total_termination":"Total Termination","termination_type":"Termination Type","termination_management":"Termination Management","add_termination_types":"Add Termination Types","termination_date":"Termination Date","notice_date":"Notice Date","resignation_types":"Resignation Types","select_resignation_type":"Select Resignation Type","resignation":"Resignation","add_resignation":"Add Resignation","resignation_list":"Resignation List","total_resignation":"Total Resignation","resignation_type":"Resignation Type","resignation_management":"Resignation Management","add_resignation_types":"Add Resignation Types","resignation_date":"Resignation Date","last_date":"Last Date","last_working_day":"Last Working Date","resignation_notification":"Resignation Request","resignation_submit":":name has requested resignation on :resignation_date effective from :last_working_day.","resignation_submitted_successfully":"Resignation submitted successfully","resignation_fetched_successfully":"Resignation fetched successfully","resignation_exist_error":"Your resignation is already :status.","document":"Document","venue":"Venue","select_warning_type":"Select Warning Type","warning":"Warning","message":"Message","add_warning":"Add Warning","warning_list":"Warning List","total_warning":"Total Warning","warning_type":"Warning Type","warning_management":"Warning Management","add_warning_types":"Add Warning Types","warning_date":"Warning Date","warning_notification":"Warning Request","warning_submit":":name has submitted their response to the warning regarding :subject issued on :date ","warning_submitted_successfully":"Warning submitted successfully","response_submitted_successfully":"Your response recorded successfully","warning_fetched_successfully":"Warning fetched successfully","warning_exist_error":"Your response is already recorded.","response_section":"Response Section","response":"Response","select_complaint_type":"Select Complaint Type","complaint":"Complaint","complaint_from":"Complaint From","add_complaint":"Add Complaint","complaint_list":"Complaint List","total_complaint":"Total Complaint","complaint_type":"Complaint Type","complaint_management":"Complaint Management","add_complaint_types":"Add Complaint Types","complaint_date":"Complaint Date","complaint_notification":"Complaint Request","complaint_submit":"Response to the complaint regarding :subject issued on :date has been submitted","complaint_submitted_successfully":"Complaint submitted successfully","complaint_fetched_successfully":"Complaint fetched successfully","complaint_exist_error":"Your response is already recorded.","complain_to":"Complain To","hr_admin_setup":"HR Admin Setup","edit_branch":"Edit Branch","branch_head_error":"The selected user is already a head of another branch, Please select a different user","department_head_error":"The selected user is already a head of another department, Please select a different user","promotion":"Promotion","add_promotion":"Add Promotion","promotion_list":"Promotion List","promotion_section":"Promotion Section","total_promotion":"Total Promotion","promotion_type":"Promotion Type","promotion_management":"Promotion Management","add_promotion_types":"Add Promotion Types","promotion_date":"Promotion Date","promotion_notification":"Promotion Request","promotion_submitted_successfully":"Promotion submitted successfully","promotion_fetched_successfully":"Promotion fetched successfully","select_post":"Select Post","old_post":"Old Post","new_post":"New Post","transfer":"Transfer","transfer_details":"Transfer Details","add_transfer":"Add Transfer","transfer_list":"Transfer List","transfer_section":"Transfer Section","total_transfer":"Total Transfer","transfer_type":"Transfer Type","transfer_management":"Transfer Management","add_transfer_types":"Add Transfer Types","transfer_date":"Transfer Date","transfer_notification":"Transfer Request","transfer_submitted_successfully":"Transfer submitted successfully","transfer_fetched_successfully":"Transfer fetched successfully","old_branch":"Old Branch","new_branch":"New Branch","old_department":"Old Department","new_department":"New Department","theme_color":"Theme Color","background_color":"Background Color","primary_color":"Primary Color","hover_color":"Hover Color","dark_primary_color":"Dark Primary Color","dark_hover_color":"Dark Hover Color","users":"Users","user_section":"User Section","add_user":"Add User","user_management":"User Management","user":"User","office_time_not_found":"Office time not found","asset_type_not_found":"Asset type not found","employee_not_found":"Employees not found","error_loading_asset_types":"Error Loading asset type","error_loading_employees":"Error loading employees","error_loading_termination_types":"Error loading termination types","error_loading_department":"Error loading departments","leave_type_not_found":"Leave type not found","error_loading_leave_types":"Error loading leave types","no_department_found":"Department not found","award_filter":"Award Filter","select_award":"Select Award","award_type_not_found":"Award type not found","termination_filter":"Termination Filter","training_type_filter":"Training Type Filter","asset_type_filter":"Asset Type Filter","award_type_filter":"Award Type Filter","termination_type_filter":"Termination Type Filter","resignation_filter":"Resignation Filter","promotion_filter":"Promotion Filter","complaint_filter":"Complaint Filter","warning_filter":"Warning Filter","transfer_filter":"Transfer Filter","trainer_filter":"Trainer Filter","office_time_filter":"Office Time Filter","leave_type_filter":"Leave type Filter","client_filter":"Client Filter","router_filter":"Router Filter","project_not_found":"Project not found","error_loading_training_types":"Error loading training types","post_filter":"Post Filter","event_filter":"Event Filter","training_filter":"Training Filter","post_lists":"Post Lists","tada_lists":"Tada Lists","advance_salary_filter":"Advance Salary Filter","log_filter":"Attendance Log Filter","advance_salary_lists":"Advance Salary Lists","logout_request_filter":"Logout Request Filter","leave_approval_filter":"Leave Approval Filter","user_list":"User list","projects_not_found":"Projects not found","attendance_logs":"Attendance Logs","attendance_type":"Attendance Type","identifier":"Identifier","nfc_lists":"NFC Lists","qr_lists":"QR Lists","qr_filter":"QR Filter","nfc_filter":"NfC Filter","select_notice_receiver":"Select Notice Receiver","generated_salary_lists":"Generated Salary Lists","employee_salaries":"Employee Salaries","select_meeting_participants":"Select Meeting Participants","employee_filter":"Employee Filter","attendance_filter":"Attendance Filter","notice_filter":"Notice Filter","award_type_lists":"Award Type Lists","termination_type_lists":"Termination Type Lists","holiday_lists":"Holiday Lists","asset_lists":"Assets List","router_lists":"Router List","meeting_list":"Meeting Lists","app_qr":"App QR","digital_hr_dashboard":"Digital HR Dashboard","training_type_list":"Training Type List","time_leave_list":"Time leave Request Lists","support_list":"Supports Lists","role_list":"Role Lists","asset_type_list":"Assets Type Lists","add_undertime":"Add UnderTime","threshold_time":"Threshold Time","ssf_rule":"SSF Rule","upload_warning":"Please upload at least one document when status is approved","check_in_latitude":"CheckIn Latitude","check_in_longitude":"CheckIn Longitude","check_out_latitude":"CheckOut Latitude","check_out_longitude":"CheckOut Longitude","cannot_delete_comment":"You cannot delete this message.","assignment":"Assignment","assignment_list":"Assignment History","assignment_history_return":"Assignment history with return procedure","history":"History","assignment_list_of":"Assignment History of","returned_date":"Returned Date","return_condition":"Returned Status","notes":"Notes","asset_assignment_list":"Asset Assignment List","assign_to":"Assigned To","return":"Return","maintenance":"Maintenance","under_maintenance":"Under Maintenance ?","is_repaired":"Is Repaired ?","asset_return":"Asset Return","asset_detail":"Asset Detail","used_for":"Used for","cancel":"Cancel","asset_assign_notification":"Asset Assign Notification","asset_return_notification":"Asset Return Notification","asset_return_message":":name has returned asset :. Reason: :reasons","invalid_attendance_action":"Invalid Attendance Action","applies_to_gender":"Applies to Gender","allow_holiday_check_in":"Attendance during Holiday and Office off Days","holiday_check_in":"Holiday Attendance","confirm_change_holiday_checkin":"Are you sure you want to change holiday and office off days checkIn and checkOut status?","assign_asset":"Assign Asset","success":"Success","error":"Error","ok":"OK","asset_assigned_success":"Asset assigned successfully","asset_assignment_error":"An error occurred while assigning the asset","assign_to_user":"Assign to Employee","select_all":"Select All","serial_number":"Serial Number","enter_serial_number":"Enter Device Serial Number","add_device":"Add Device","biometric_device":"Biometric Device","device":"Device","device_lists":"Device Lists","device_name":"Device Name","device_ip":"Device Ip Address","last_online":"Last Online","days":"days","process":"Process","amount_granted_date":"Release Date","event_history":"Event History","see_event_history":"View Event History","created_at":"Created Date","total_working_hours":"Total Working Hours","total_deficit_hours":"Total Deficit Hours","total_overtime_hours":"Total Overtime Hours","total_undertime_hours":"Total UnderTime Hours","weekly_absent_deduction_formula":"(Deficit Hours * Hourly Pay Rate)","payroll_type":"Payroll Type","select_payroll_type":"Select Payroll Type","select_salary_cycle":"Select Payment Type","payment_type":"Payment Type","weekly_amount":"Weekly Amount","working_hours_in_month":"Working Hours in Month","include_tds":"Include Tds","include_ssf":"Include SSF","ssf_history":"SSF History","ssf_history_list":"SSF History List","ssf_history_lists":"SSF History List","assigned_employees":"Assigned Employees","payroll_generate_warning":"Payroll cannot be generated when attendance data is not available. Please ensure all required attendance records are available before proceeding with payroll generation.","edit_salary_group":"Edit Salary Group","edit_bonus":"Edit Bonus","ssf_start_date":"SSF Initiated Date","total_amount":"Total Amount","salary":"Salary","applicable_date":"Applicable Date","confirm_delete_report":"Are you sure you want to Delete Tax Report ?","ssf_calculation_message":"SSF calculation is based on basic salary of employee.","enable_tax_exemption":"Enable SSF-Linked Exemption for First Tax Bracket","attendance_settings":"Attendance Setting","manual_logs":"Manual Logs","biometric_logs":"Biometric Logs","device_serial_number":"Device Serial Number","pf_contribution":"EPF Contribution","pf_contribution_salary":"EPF Contribution Salary","pf_deduction":"EPF Deduction","pf":"EPF","pf_rule":"EPF Rule","pf_calculation_message":"EPF calculation is based on basic salary of employee.","pf_start_date":"EPF Initiated Date","include_pf":"Include EPF","change_running_status":"Are you sure you want to change current fiscal year status?","is_current":"Is Current ?","fiscal_year_status_warning":"Current Fiscal Year cannot be turned off.","old_fiscal_year_status_warning":"Previous Fiscal Year cannot be turned on for current status.","total_duration":"Total Duration (in Days)","no_leave_types_found":"No Leave Types Found","loan_management":"Loan Management","loan_types":"Loan Types","add_loan_types":"Add Loan Type","edit_loan_types":"Edit Loan Type","loan_type_filter":"Loan Type Filter","loan_type_list":"Loan Type List","maximum_amount":"Maximum Amount","minimum_amount":"Minimum Amount","interest_rate":"Interest Rate","interest_type":"Interest Type","select_interest_type":"Select Interest Type","term":"Installment","payment_terms":"Installment Period","view_loan_type":"Loan Type Detail","loan_id":"Loan Id","loan_type":"Loan Type","loan":"Loan","select_loan_type":"Select Loan Type","add_loan":"Add Loan","loans_filter":"Loan Filter","loan_lists":"Loan Lists","view_loan":"Loan Detail","loan_amount":"Loan Amount","application_date":"Application Date","enter_loan_id":"Enter Loan Id","loan_purpose":"Loan Purpose","enter_loan_purpose":"Enter Loan Purpose","enter_loan_amount":"Enter Loan Amount","remarks":"Remarks","loan_type_not_found":"Loan type not found","loan_repayment_list":"Loan Repayment List","loan_repayment":"Loan Repayment","loan_repayment_filter":"Loan Repayment Filter","repayment_list":"Repayment List","principal_amount":"Principal Amount","principal":"Principal","interest":"Interest","repayment_from":"Repayment From","repayment_amount":"Repayment Amount","monthly_installment":"Monthly Installment","loan_summary":"Loan Summary","no_attachment":"No Attachment","loan_detail":"Loan Detail","issue_date":"Issue Date","change_status":"Change Status","purpose":"Purpose","request_loan":"Request Loan","next_interest_amount":"Next Interest Amount","remaining_balance":"Remaining Balance","loan_issued_at":"Loan Issued at","loan_due_at":"Loan Due at","repayment_date":"Repayment Date","select_payment_method":"Select Payment Method","loan_repayment_detail_list":"Loan Repayment Detail List","repayment_detail":"Repayment Detail","loan_list":"Loan List","request":"Request","view_attachment":"View Attachment","ending_balance":"Ending Balance","balance":"Balance","schedule_payment":"Schedule Payment Amt.","emi_calculator":"EMI Calculator","total_interest":"Total Interest","month":"Month","monthly_emi":"Monthly EMI","interest_payable":"Interest Payable","total_amount_payable":"Total Amount Payable","settlement_request":"Settlement Request","loan_settlement_request":"Loan Settlement Request","add_loan_settlement_request":"Add Loan Settlement Request","settlement_type":"Settlement Type","select_settlement_type":"Select Settlement Type","settlement_method":"Settlement Method","select_settlement_method":"Select Settlement Method","select_loan":"Select Loan","settlement_request_list":"Settlement Request List","request_settlement":"Request Settlement","all_loan":"All Loan","loan_history":"Loan History","settled_loan":"Settled Loan","show_leave_reason":"Show Leave Reason","loan_history_of":"Loan History of :title","repayment_summary":"Loan Repayment Summary","settlement_requests":"Settlement Request","approved_by":"Approved By","view_description":"View Description","view_reason":"View Reason","view_remarks":"View Remarks","loan_update_alert":"You cannot update the detail once approved, Please contact administrator","loan_settlement_request_filter":"Loan Settlement Request Filter","loan_settlement_request_lists":"Loan Settlement Request List","settlement_amount":"Settlement Amount","settlement_date":"Settlement Date","count_holiday_weekend":"Count Holiday and Weekend for Leave","leave_for":"Leave For","select_leave_for":"Leave For","leave_in":"Select Leave In","select_leave_in":"Select Leave In","halfday_mark_time":"Half-day Mark Time","allocated":"Allocated","used":"Used","remaining":"Remaining","leave_balance":"Leave Balance","leave_balance_filter":"Leave Balance Filter","view_details":"View Details","cancel_request":"Cancel Request","cancel_request_approval":"Cancel Request Approval","leave_cancel_request":"Leave cancel request submitted successfully","setting":"Setting","loan_setting":"Loan Setting","card_template_section":"Employee Card Template section","card_template":"Employee Card Template","add_card_template":"Add Employee Card Template","create_card_template":"Create Card Template","leave_request_list":"Leave Request List","all_department":"All Departments","card_files":"Card Files","card_setting":"Card Setting","template_list":"Template List","add_template":"Add Template","orientation":"Orientation","is_default":"Is Default","are_you_sure_delete_template":"Are you sure you want to delete this template ?","are_you_sure_make_default":"Are you sure you want to make this default template?","select_date_option":"Select Date Option","working_days":"Working Days","team_meeting_notification":"Team Meeting Notification","contract_type":"Contract Type","select_contract_type":"Select Contract Type","add_contract_type":"Add Contract Type","contract_type_filter":"Contract Type Filter","contract_type_list":"Contract Type List","permanent":"Permanent","add_contract_types":"Add Contract Type","edit_contract_types":"Edit Contract Type","probation_period":"Probation Period (months)","notice_period_days":"Notice Period (days)","permanent_contract":"Is Permanent ?","renewable":"Is Renewable ?","duration_months":"Duration (months) ?","probation_days_months":"Probation (months) ?","recruitment":"Recruitment","job_category":"Job Category","job_category_filter":"Job Category Filter","job_category_list":"Job Category List","add_job_category":"Add Job Category","job_type":"Job Type","job_type_filter":"Job Type Filter","job_type_list":"Job Type List","add_job_type":"Add Job Type","contract_type_not_found":"Contract Type not found","error_loading_office_times":"Error Loading Office Times","error_loading_contract_types":"Error Loading Contract Types","job":"Job","add_job":"Add Job","job_list":"Job List","select_job_type":"Select Job Type","select_job_category":"Select Job Category","job_title":"Job Title","total_openings":"Total Openings","vacancy_start_date":"Vacancy Start Date","application_deadline":"Application Deadline","application_url":"Application Url","salary_details":"Salary Details","pay_by":"Pay By","salary_rate":"Salary Rate","show_salary_on_website":"Show Salary on website","requirements":"Requirements","job_description":"Job Description","select_rate ":"Select Rate","benefits":"Benefits","experience_required":"Required Experience","required_application_fields":"Required Application Fields","select_rate":"Select Rate","question":"Question","add_skill":"Add Skill","skill_filter":"Skill Filter","skill_lists":"Skill List","skill_name":"Skill Name","enter_skill_name":"Enter Skill Name","skills":"Skills","skill":"Skill","select_skill":"Select Skill","add_question":"Add question","custom_questions":"Custom Questions","please_wait":"Please Wait","validation_error":"Validation Error","skill_saved_successfully":"New Skill Saved Successfully","skill_added_successfully":"New Skill added Successfully","skill_updated_successfully":"Skill data Updated Successfully","something_went_wrong":"Something Went Wrong","network_or_server_error":"Network or Server Error","added":"Added","min_salary":"Minimum Salary","max_salary":"Maximum Salary","total_opening":"Total Opening","job_detail":"Job Detail","edit_job":"Edit Job","required_experience":"Required Experience","application_period":"Application Period","required_skills":"Required Skills","job_application":"Job Applicant","interview_rounds":"Interview Rounds","add_interview_round":"Add Interview Round","round_type":"Round Type","round_title":"Round Title","interviewer":"Interviewer","select_type":"Select Type","select_hr":"Select HR","job_application_list":"Job Applicant List","add_candidate":"Add Job Applicant","no_job_applications_found":"Job applicants not found","applied_on":"Applied On","application_details":"Applicant Details","job_and_application_info":"Job and Applicant Info","applied_for":"Applied For","professional_details":"Professional Details","current_ctc":"Current CTC","expected_ctc":"Expected CTC","notice_period":"Notice Period","profile_photo":"Profile Photo","resume_cv":"Resume\/CV","download_resume":"Download Resume","source":"Source","cover_letter":"Cover Letter","application_id":"Applicant Id","personal_information":"Personal Information","documents":"Documents","no_jobs_found":"Jobs not found","job_category_lists":"Job Category List","view_contract_type":"Contract Type Detail","step":"Step","select_personnel":"Select Personnel","interview":"Interview","interview_list":"Interview List","add_interview":"Add Interview","interview_details":"Interview Details","interview_exist_error":"Interview for this candidate for selected round already exists","recommendation_type":"Recommendation Type","recommendation_type_lists":"Recommendation Type List","add_recommendation_type":"Add Recommendation Type","rating":"Rating","recommendation_type_exist_error":"Recommendation type with rating :rating already exists","feedback":"Feedback","add_feedback":"Add Feedback","feedback_list":"Feedback List","recommendation_types_not_found":"Recommendation Type data not found. create new.","feedback_exist_error":"Interview feedback for the given applicant by the selected interviewer already exists","job_offer_exist_error":"Job offer for the given job and applicant already exists","job_application_delete_error":"This applicant cannot be deleted, the application is in :status state.","job_offer":"Job Offer","job_offer_details":"Job Offer Detail","offer_list":"Job Offer List","add_offer":"Add Job Offer","current_role":"Current Role","questions_and_answers":"Question and Answer","interview_feedback_list":"Interview Feedback List","onboard":"Onboard","onboard_details":"Onboard Detail","onboard_list":"Onboard Applicant List","convert_to_employee":"Convert to Employee","contract":"Contract","contract_types":"Contract Types","employee_contract":"Employee Contract","employee_contract_list":"Employee Contract List","create_employee_contract":"Create Employee Contract","contract_management":"Contract Management","no_contracts_found":"Contracts not Found","months":"Months","renew":"Renew","renew_employee_contract":"Renew Employee Contract","updated_at":"Updated Date","approved_date":"Approved Date","employee_contract_delete_error":"This employee cannot be deleted, it is in :status state.","training_delete_error":"This training cannot be deleted, as it is in :status state.","event_delete_error":"This event cannot be deleted, as it is in :status state."};
+    </script>
+    <script>
+    $('document').ready(function(){
+
+        $('.errorStartWorking').hide();
+
+        $('.errorStopWorking').hide();
+
+        $('.successStartWorking').hide();
+
+        $('.successStopWorking').hide();
+
+        function showLoader() {
+            $('#loader').show();
+        }
+
+        function hideLoader() {
+            $("#loader").hide();
+        }
+
+        setInterval(drawClock, 1000);
+
+        function drawClock(){
+            let now = new Date();
+            let hr = now.getHours();
+            let min = now.getMinutes();
+            let sec = now.getSeconds();
+            let hr_rotation = 30 * hr + min / 2;
+            let min_rotation = 6 * min;
+            let sec_rotation = 6 * sec;
+            hour.style.transform = `rotate(${hr_rotation}deg)`;
+            minute.style.transform = `rotate(${min_rotation}deg)`;
+            second.style.transform = `rotate(${sec_rotation}deg)`;
+
+            // display weekday and date
+            // const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            // const weekday = weekdays[now.getDay()];
+            // const date = now.toLocaleDateString();
+            //
+            // const dateDiv = document.getElementById('date');
+            // dateDiv.innerText = `${weekday}, ${date}`;
+        }
+
+        let tasksChart = new Chart(document.getElementById("tasksChart"), {
+            type: 'pie',
+            data: {
+                labels: [ translatedStrings.pending,
+                    translatedStrings.on_hold,
+                    translatedStrings.in_progress,
+                    translatedStrings.completed,
+                    translatedStrings.cancelled
+                ],
+                datasets: [{
+                    label: 'Task state',
+                    type: 'doughnut',
+                    backgroundColor: ["#7ee5e5","#f77eb9","#4d8af0","#00ff00","#FF0000"],
+                    borderColor: [
+                        'rgba(256, 256, 256, 1)',
+                        'rgba(256, 256, 256, 1)',
+                        'rgba(256, 256, 256, 1)',
+                        'rgba(256, 256, 256, 1)',
+                        'rgba(256, 256, 256, 1)'
+                    ],
+
+                    data: [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Task Pie Chart'
+                    }
+                }
+            }
+        });
+
+        let ctx = document.getElementById('projectChart')?.getContext('2d');
+        let labels = [
+            translatedStrings.pending,
+            translatedStrings.on_hold,
+            translatedStrings.in_progress,
+            translatedStrings.completed,
+            translatedStrings.cancelled
+        ];
+        let barColors = ["#7ee5e5","#f77eb9","#4d8af0","green",'red'];
+        let barData = [
+            0,
+            0,
+            0,
+            0,
+            0
+        ];
+
+        let myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels ,
+                datasets: [{
+                    label: 'Project',
+                    backgroundColor: barColors,
+                    data: barData,
+                    borderWidth: 1,
+                    borderRadius: 10,
+                    borderSkipped: true,
+                }],
+
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'none',
+                    },
+                    title: {
+                        display: false,
+                        text: 'Project Bar Chart'
+                    }
+                },
+                barThickness: 50,
+
+            }
+        });
+
+        $("#startWorkingBtn").click(function(e) {
+            e.preventDefault();
+            showLoader();
+            let url = $(this).attr('href');
+            let audioUrl = $(this).data('audio');
+
+            getLocation().then(function (position) {
+                let params = {
+                    lat: position.latitude,
+                    long: position.longitude
+                };
+                let queryString = $.param(params);
+                let urlWithParams = url + "?" + queryString
+                $.ajax({
+                    type: "get",
+                    url: urlWithParams,
+                    success: function (response) {
+                        $('#startWorkingBtn').addClass('d-none');
+                        $('#checkInTime').text(response.data.check_in_at);
+                        $('#flashAttendanceMessage').removeClass('d-none');
+                        $('.successStartWorking').show();
+                        $('.successStartWorkingMessage').text(response.message);
+                        $('div.alert.alert-success').not('.alert-important').delay(500).slideUp(900);
+                        let audio = new Audio(audioUrl);
+                        audio.play();
+                        location.reload();
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (jqXHR.status === 400) {
+                            let errorObj = JSON.parse(jqXHR.responseText);
+                            let errorMessage = "Error: " + errorObj.message;
+                            $('#flashAttendanceMessage').removeClass('d-none');
+                            $('.errorStartWorking').show();
+                            $('.errorStartWorkingMessage').text(errorMessage);
+                            $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+                        } else {
+                            let errorMessage = "Error: " + errorThrown;
+                            $('#flashAttendanceMessage').removeClass('d-none');
+                            $('.errorStartWorking').show();
+                            $('.errorStartWorkingMessage').text(errorMessage);
+                            $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+                        }
+                        location.reload();
+                    },
+                    complete: function () {
+                        hideLoader();
+                    }
+                });
+            }).catch(function (error) {
+                hideLoader();
+                $('#flashAttendanceMessage').removeClass('d-none');
+                $('.errorStartWorking').show();
+                $('.errorStartWorkingMessage').text("Error occurred while retrieving location: "+error.message);
+                $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+            });
+        });
+
+        $("#stopWorkingBtn").click(function(e){
+            e.preventDefault();
+            showLoader();
+            let url = $(this).attr('href');
+            let audioUrl = $(this).data('audio');
+            getLocation().then(function (position) {
+                let params = {
+                    lat: position.latitude,
+                    long: position.longitude
+                };
+                let queryString = $.param(params);
+                let urlWithParams = url + "?" + queryString
+
+                $.ajax({
+                    type: "get",
+                    url: urlWithParams,
+                success: function(response){
+                    let audio = new Audio(audioUrl);
+                    audio.play();
+                    $('#stopWorkingBtn').addClass('d-none');
+                    $('#checkOutTime').text(response.data.check_out_at);
+                    $('#flashAttendanceMessage').removeClass('d-none');
+                    $('.successStopWorking').show();
+                    $('.successStopWorkingMessage').text(response.message);
+                    $('div.alert.alert-success').not('.alert-important').delay(500).slideUp(900);
+                    location.reload();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status === 400) {
+                        let errorObj = JSON.parse(jqXHR.responseText);
+                        let errorMessage = "Error: " + errorObj.message;
+                        $('#flashAttendanceMessage').removeClass('d-none');
+                        $('.errorStopWorking').show();
+                        $('.errorStopWorkingMessage').text(errorMessage);
+                        $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+                    } else {
+                        let errorMessage = "Error: " + errorThrown;
+                        $('#flashAttendanceMessage').removeClass('d-none');
+                        $('.errorStopWorking').show();
+                        $('.errorStopWorkingMessage').text(errorMessage);
+                        $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+                    }
+                    location.reload();
+                },
+                complete: function() {
+                    hideLoader();
+                }
+            });
+            }).catch(function (error) {
+                hideLoader();
+                $('#flashAttendanceMessage').removeClass('d-none');
+                $('.errorStartWorking').show();
+                $('.errorStartWorkingMessage').text("Error occurred while retrieving location: "+error.message);
+                $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+            });
+        });
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                return new Promise(function(resolve, reject) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        let latitude = position.coords.latitude;
+                        let longitude = position.coords.longitude;
+
+                        resolve({ latitude: latitude, longitude: longitude });
+                    }, function(error) {
+                        reject(error);
+                    });
+                });
+            } else {
+                hideLoader();
+                $('#flashAttendanceMessage').removeClass('d-none');
+                $('.errorStartWorking').show();
+                $('.errorStartWorkingMessage').text('Geolocation is not supported by this browser.');
+                $('div.alert.alert-danger').not('.alert-important').delay(5000).slideUp(900);
+            }
+        }
+    });
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+<script type="text/javascript">
+    let url = "https://digitalhr.cyclonenepal.com/admin/language/change";
+
+    $(".changeLang").click(function() {
+        let lang = $(this).data('lang');
+        window.location.href = url + "?lang=" + lang;
+    });
+</script>
+<script src="https://digitalhr.cyclonenepal.com/assets/vendors/select2/select2.min.js"></script>
+
+
+
+
+
+
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg></body></html>

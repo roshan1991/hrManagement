@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Digital HR Complete HR Attendance System">
+    <meta name="author" content="Digital HR">
+    <meta name="keywords" content="Digital HR">
+
+    <title>Login</title>
+    <style>
+        :root {
+            --primary-color: #004080;
+            --hover-color: #78ff0a;
+            --dark-primary-color: #1d6bb9;
+            --dark-hover-color: #0000a0;
+        }
+    </style>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- End fonts -->
+
+    <!-- core:css -->
+    <link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/core/core.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/fonts/feather-font/css/iconfont.css">
+    <link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <!-- endinject -->
+
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="https://digitalhr.cyclonenepal.com/assets/css/style.css">
+    <!-- End layout styles -->
+
+    <link rel="shortcut icon" href="https://digitalhr.cyclonenepal.com/assets/images/favicon.png" />
+
+    </head>
+<body>
+
+    <section class="content">
+            <div class="main-wrapper">
+                <div class="page-wrapper full-page">
+                <div class="page-content d-flex align-items-center justify-content-center">
+                    <div class="row w-100 mx-0 auth-page">
+                        <div class="col-md-8 col-xl-6 mx-auto">
+                            <div class="card">
+
+                                <div class="row align-items-center">
+                                    <div class="col-md-4 pe-md-0">
+                                        <div class="auth-side-wrapper p-4">
+                                          <img src="
+                                            https://digitalhr.cyclonenepal.com/uploads/company/logo/Thumb-67a066a0df356_Thumb-672213f6b708d_Thumb-670de9b0297db_Thumb-66599e3e28562_Thumb-659d2037c3ce3_dhr-logo-01.png"
+                                               style="object-fit: cover"
+                                               width="100%"
+                                               height="100%"
+                                               alt="Company Logo">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8 ps-md-0">
+
+                                        <div class="auth-form-wrapper px-4 py-5">
+                                            <a href="#" class="noble-ui-logo d-block mb-2">Digital HRS</a>
+                                            <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                                            
+                                                                                        <form class="forms-sample" method="POST" action="https://digitalhr.cyclonenepal.com/admin/login">
+                                                <input type="hidden" name="_token" value="cO5KKhPaEybcXFbTTgB5PqCerHTOUH2pSb7dvB2J" autocomplete="off">                                                <div class="mb-3">
+                                                    <label for="userEmail" class="form-label">Login As</label>
+                                                    <select class="form-select " id="exampleFormControlSelect1" name="user_type">
+                                                        <option selected value="admin">Admin</option>
+                                                        <option value="employee">Employee</option>
+                                                    </select>
+
+                                                                                                    </div>
+                                                <div class="mb-3">
+                                                    <label for="userEmail" class="form-label">Email address/Username</label>
+                                                    <input
+                                                        class="form-control "
+                                                        name="email" value=""
+                                                        required
+                                                        autocomplete="email"
+                                                        autofocus
+                                                    >
+                                                                                                    </div>
+
+                                                <div class="mb-3">
+                                                    <label for="userPassword" class="form-label">Password</label>
+                                                    <input id="password"
+                                                           type="password"
+                                                           class="form-control "
+                                                           name="password"
+                                                           required
+                                                           autocomplete="current-password"
+                                                    >
+                                                                                                    </div>
+
+
+
+
+
+
+
+
+                                                <div>
+                                                    <button type="submit" class=" btn btn-primary me-2 mb-2 mb-md-0 text-white">
+                                                        Login
+                                                    </button>
+
+                                                                                                            <a class="btn btn-link" href="https://digitalhr.cyclonenepal.com/password/reset">
+                                                            Forgot Your Password?
+                                                        </a>
+                                                                                                    </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://digitalhr.cyclonenepal.com/assets/vendors/core/core.js"></script>
+    <script src="https://digitalhr.cyclonenepal.com/assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="https://digitalhr.cyclonenepal.com/assets/js/template.js"></script>
+    <script>
+        $('div.alert.alert-success').not('.alert-important').delay(5000).slideUp(900);
+        $('div.alert.alert-danger').not('.alert-important').delay(1000).slideUp(900);
+    </script>
+
+
+</body>
+</html>
