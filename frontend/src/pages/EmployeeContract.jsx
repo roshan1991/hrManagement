@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, name: 'Annual Leave', description: 'Year-end employment contract renewal', employee: 'Rajesh Sharma', contract_type: 'Permanent', start_date: '2024-01-01', end_date: '2024-12-31', status: 'Active' },
@@ -8,7 +9,6 @@ const SAMPLE = [
   { id: 3, name: 'Probation Agreement', description: 'Probation period employment terms', employee: 'Bikash Rai', contract_type: 'Probation', start_date: '2025-05-01', end_date: '2025-07-31', status: 'Active' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const CONTRACT_TYPES = ['Permanent', 'Contract', 'Probation', 'Part-Time', 'Freelance'];
 
 const emptyForm = { name: '', description: '', employee: '', contract_type: 'Permanent', start_date: '', end_date: '', status: 'Active' };
@@ -16,6 +16,7 @@ const emptyForm = { name: '', description: '', employee: '', contract_type: 'Per
 const API_URL = 'http://localhost:5000/api/employee-contract';
 
 const EmployeeContract = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -118,7 +119,7 @@ const EmployeeContract = () => {
           <Modal.Body>
             <Row className="g-3">
               <Col md={12}><Form.Group><Form.Label>Contract Name / Title <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.name} onChange={set('name')} /></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Contract Type</Form.Label><Form.Select value={formData.contract_type} onChange={set('contract_type')}>{CONTRACT_TYPES.map(c => <option key={c}>{c}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Start Date</Form.Label><Form.Control type="date" value={formData.start_date} onChange={set('start_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>End Date</Form.Label><Form.Control type="date" value={formData.end_date} onChange={set('end_date')} /></Form.Group></Col>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Card, InputGroup } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE_REQUESTS = [
   { id: 1, employee: 'Rajesh Sharma', department: 'Engineering', leave_type: 'Annual Leave', start_date: '2025-06-10', end_date: '2025-06-12', days: 3, reason: 'Family vacation', status: 'Pending' },
@@ -10,7 +11,6 @@ const SAMPLE_REQUESTS = [
 ];
 
 const LEAVE_TYPES = ['Annual Leave', 'Sick Leave', 'Casual Leave', 'Maternity Leave', 'Paternity Leave', 'Emergency Leave'];
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 
 const emptyForm = { employee: '', leave_type: '', start_date: '', end_date: '', reason: '', attachment: '', status: 'Pending' };
 
@@ -19,6 +19,7 @@ const statusColor = { Pending: 'warning', Approved: 'success', Rejected: 'danger
 const API_URL = 'http://localhost:5000/api/leave-request';
 
 const LeaveRequest = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -174,7 +175,7 @@ const LeaveRequest = () => {
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
             <Row className="g-3">
-              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Leave Type <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.leave_type} onChange={set('leave_type')}><option value="">Select Type</option>{LEAVE_TYPES.map(l => <option key={l}>{l}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Start Date <span className="text-danger">*</span></Form.Label><Form.Control type="date" required value={formData.start_date} onChange={set('start_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>End Date <span className="text-danger">*</span></Form.Label><Form.Control type="date" required value={formData.end_date} onChange={set('end_date')} /></Form.Group></Col>

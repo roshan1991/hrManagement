@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, title: 'Travel Allowance - Pokhara Trip', description: 'Team travel for client meeting in Pokhara', employee: 'Rajesh Sharma', amount: 8500, date: '2025-05-28', type: 'Travel', status: 'Approved' },
@@ -8,7 +9,6 @@ const SAMPLE = [
   { id: 3, title: 'Accommodation - Conference', description: 'Hotel expenses for annual conference', employee: 'Amit Poudel', amount: 15000, date: '2025-05-20', type: 'Accommodation', status: 'Approved' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const TYPES = ['Travel', 'Daily', 'Accommodation', 'Food', 'Miscellaneous'];
 const statusColor = { Pending: 'warning', Approved: 'success', Rejected: 'danger' };
 
@@ -17,6 +17,7 @@ const emptyForm = { title: '', description: '', employee: '', amount: '', date: 
 const API_URL = 'http://localhost:5000/api/tada';
 
 const Tada = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -127,7 +128,7 @@ const Tada = () => {
           <Modal.Body>
             <Row className="g-3">
               <Col md={12}><Form.Group><Form.Label>Title <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.title} onChange={set('title')} /></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Allowance Type</Form.Label><Form.Select value={formData.type} onChange={set('type')}>{TYPES.map(t => <option key={t}>{t}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Amount (Rs.) <span className="text-danger">*</span></Form.Label><Form.Control type="number" required value={formData.amount} onChange={set('amount')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Date</Form.Label><Form.Control type="date" value={formData.date} onChange={set('date')} /></Form.Group></Col>

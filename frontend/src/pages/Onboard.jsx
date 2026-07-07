@@ -7,7 +7,6 @@ const SAMPLE = [
   { id: 2, applicant: 'Anita Rai', position: 'HR Executive', department: 'HR', offer_date: '2025-05-30', join_date: '2025-06-15', status: 'Pending', notes: 'Waiting for confirmation' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung'];
 const statusColor = { Pending: 'warning', Accepted: 'success', Rejected: 'danger', Joined: 'info' };
 
 const emptyForm = { applicant: '', position: '', department: '', offer_date: '', join_date: '', status: 'Pending', notes: '' };

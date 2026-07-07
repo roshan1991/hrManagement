@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table, InputGroup } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, title: 'HR System Revamp', description: 'Overhaul the HR management system', client: 'Margaret Robbins', assigned_to: 'Rajesh Sharma, Priya Thapa', start_date: '2025-05-01', deadline: '2025-08-31', priority: 'High', status: 'In Progress' },
@@ -9,7 +10,6 @@ const SAMPLE = [
 ];
 
 const CLIENTS = ['Margaret Robbins', 'Contractor1 LLC', 'Digital Media Group'];
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const statusColor = { 'To Do': 'secondary', 'In Progress': 'primary', 'Done': 'success' };
 const priorityColor = { Low: 'info', Medium: 'warning', High: 'danger' };
 
@@ -18,6 +18,7 @@ const emptyForm = { title: '', description: '', client: '', assigned_to: '', sta
 const API_URL = 'http://localhost:5000/api/project';
 
 const Project = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -149,7 +150,7 @@ const Project = () => {
             <Row className="g-3">
               <Col md={12}><Form.Group><Form.Label>Project Title <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.title} onChange={set('title')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Client</Form.Label><Form.Select value={formData.client} onChange={set('client')}><option value="">Select Client</option>{CLIENTS.map(c => <option key={c}>{c}</option>)}</Form.Select></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Assigned To</Form.Label><Form.Select value={formData.assigned_to} onChange={set('assigned_to')}><option value="">Select Team Members</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Assigned To</Form.Label><Form.Select value={formData.assigned_to} onChange={set('assigned_to')}><option value="">Select Team Members</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Start Date</Form.Label><Form.Control type="date" value={formData.start_date} onChange={set('start_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Deadline</Form.Label><Form.Control type="date" value={formData.deadline} onChange={set('deadline')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Priority</Form.Label><Form.Select value={formData.priority} onChange={set('priority')}><option>Low</option><option>Medium</option><option>High</option></Form.Select></Form.Group></Col>

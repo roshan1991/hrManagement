@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, title: 'System Downtime Complaint', employee: 'Rajesh Sharma', department: 'Engineering', date: '2025-05-20', priority: 'High', category: 'Technical', status: 'Open', description: 'The development server is frequently going down during peak hours.' },
@@ -8,7 +9,6 @@ const SAMPLE = [
   { id: 3, title: 'Office Facilities Issue', employee: 'Amit Poudel', department: 'Finance', date: '2025-05-25', priority: 'Low', category: 'Facilities', status: 'Resolved', description: 'Air conditioning not working in the finance department.' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const CATEGORIES = ['Technical', 'Payroll', 'Facilities', 'HR Policy', 'Management', 'Other'];
 const statusColor = { Open: 'danger', 'In Progress': 'warning', Resolved: 'success' };
 const priorityColor = { Low: 'info', Medium: 'warning', High: 'danger' };
@@ -18,6 +18,7 @@ const emptyForm = { title: '', employee: '', department: '', date: '', priority:
 const API_URL = 'http://localhost:5000/api/complaint';
 
 const Complaint = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -123,7 +124,7 @@ const Complaint = () => {
           <Modal.Body>
             <Row className="g-3">
               <Col md={12}><Form.Group><Form.Label>Complaint Title <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.title} onChange={set('title')} /></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Category</Form.Label><Form.Select value={formData.category} onChange={set('category')}><option value="">Select Category</option>{CATEGORIES.map(c => <option key={c}>{c}</option>)}</Form.Select></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Date</Form.Label><Form.Control type="date" value={formData.date} onChange={set('date')} /></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Priority</Form.Label><Form.Select value={formData.priority} onChange={set('priority')}><option>Low</option><option>Medium</option><option>High</option></Form.Select></Form.Group></Col>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, asset_name: 'Dell Laptop #014', asset_code: 'ASSET-014-LP', employee: 'Rajesh Sharma', assigned_date: '2024-01-15', return_date: '2025-06-01', condition: 'Good', notes: 'Minor scratches on lid', status: 'Returned' },
@@ -8,7 +9,6 @@ const SAMPLE = [
   { id: 3, asset_name: 'Ergonomic Chair', asset_code: 'ASSET-007-FN', employee: 'Amit Poudel', assigned_date: '2023-08-01', return_date: '2025-05-20', condition: 'Damaged', notes: 'Armrest broken, needs repair', status: 'Returned' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const CONDITIONS = ['Excellent', 'Good', 'Fair', 'Damaged', 'Lost'];
 const statusColor = { 'Returned': 'success', 'Pending Return': 'warning', 'Overdue': 'danger' };
 
@@ -17,6 +17,7 @@ const emptyForm = { asset_name: '', asset_code: '', employee: '', assigned_date:
 const API_URL = 'http://localhost:5000/api/asset-return';
 
 const AssetReturn = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -148,7 +149,7 @@ const AssetReturn = () => {
             <Row className="g-3">
               <Col md={6}><Form.Group><Form.Label>Asset Name <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.asset_name} onChange={set('asset_name')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Asset Code</Form.Label><Form.Control value={formData.asset_code} onChange={set('asset_code')} /></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Assigned Date</Form.Label><Form.Control type="date" value={formData.assigned_date} onChange={set('assigned_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Return Date</Form.Label><Form.Control type="date" value={formData.return_date} onChange={set('return_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Condition on Return</Form.Label><Form.Select value={formData.condition} onChange={set('condition')}><option value="">Select Condition</option>{CONDITIONS.map(c => <option key={c}>{c}</option>)}</Form.Select></Form.Group></Col>

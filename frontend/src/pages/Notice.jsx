@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button, Form, Modal, Badge, Row, Col, InputGroup } from 'react-bootstrap';
+import { useDepartments } from '../hooks/useDepartments';
 
 const API_URL = 'http://localhost:5000/api/notices';
-const DEPARTMENTS = ['All Departments', 'Engineering', 'HR', 'Finance', 'Marketing', 'Operations'];
 
 const Notice = () => {
+  const { departments } = useDepartments();
+  const targetDepartments = ['All Departments', ...departments];
   const [items, setItems] = useState([]);
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({ title: '', content: '', published_date: '', target_department: 'All Departments', status: 'Published' });
@@ -175,7 +177,7 @@ const Notice = () => {
                 <Form.Group>
                   <Form.Label>Target Department</Form.Label>
                   <Form.Select value={formData.target_department} onChange={set('target_department')}>
-                    {DEPARTMENTS.map(d => <option key={d}>{d}</option>)}
+                    {targetDepartments.map(d => <option key={d}>{d}</option>)}
                   </Form.Select>
                 </Form.Group>
               </Col>

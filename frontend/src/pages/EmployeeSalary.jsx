@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, employee: 'Rajesh Sharma', month_year: '2025-05', basic_salary: 85000, allowances: 12000, deductions: 8500, net_salary: 88500, payment_method: 'Bank Transfer', status: 'Paid' },
@@ -9,7 +10,6 @@ const SAMPLE = [
   { id: 4, employee: 'Sunita Gurung', month_year: '2025-05', basic_salary: 62000, allowances: 9000, deductions: 6200, net_salary: 64800, payment_method: 'Bank Transfer', status: 'Unpaid' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const PAYMENT_METHODS = ['Bank Transfer', 'Cash', 'Cheque'];
 
 const emptyForm = { employee: '', month_year: '', basic_salary: '', allowances: '', deductions: '', net_salary: '', payment_method: 'Bank Transfer', status: 'Unpaid' };
@@ -17,6 +17,7 @@ const emptyForm = { employee: '', month_year: '', basic_salary: '', allowances: 
 const API_URL = 'http://localhost:5000/api/employee-salary';
 
 const EmployeeSalary = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -154,7 +155,7 @@ const EmployeeSalary = () => {
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
             <Row className="g-3">
-              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Month/Year</Form.Label><Form.Control type="month" value={formData.month_year} onChange={set('month_year')} /></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Basic Salary (Rs.)</Form.Label><Form.Control type="number" value={formData.basic_salary} onChange={set('basic_salary')} /></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Allowances (Rs.)</Form.Label><Form.Control type="number" value={formData.allowances} onChange={set('allowances')} /></Form.Group></Col>

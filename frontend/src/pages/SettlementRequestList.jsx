@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, title: 'Pending Leave Settlement', description: 'Settlement for annual leave balance payout', employee: 'Rajesh Sharma', amount: 25000, request_date: '2025-06-01', status: 'Pending' },
   { id: 2, title: 'Loan Settlement Request', description: 'Early settlement of personal loan', employee: 'Priya Thapa', amount: 85000, request_date: '2025-05-28', status: 'Approved' },
 ];
 
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung'];
 const emptyForm = { title: '', description: '', employee: '', amount: '', request_date: '', status: 'Pending' };
 const statusColor = { Pending: 'warning', Approved: 'success', Rejected: 'danger' };
 
 const API_URL = 'http://localhost:5000/api/settlement-request-list';
 
 const SettlementRequestList = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -115,7 +116,7 @@ const SettlementRequestList = () => {
           <Modal.Body>
             <Row className="g-3">
               <Col md={12}><Form.Group><Form.Label>Title <span className="text-danger">*</span></Form.Label><Form.Control required value={formData.title} onChange={set('title')} /></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee</Form.Label><Form.Select value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Amount (Rs.) <span className="text-danger">*</span></Form.Label><Form.Control type="number" required value={formData.amount} onChange={set('amount')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Request Date</Form.Label><Form.Control type="date" value={formData.request_date} onChange={set('request_date')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Status</Form.Label><Form.Select value={formData.status} onChange={set('status')}><option>Pending</option><option>Approved</option><option>Rejected</option></Form.Select></Form.Group></Col>

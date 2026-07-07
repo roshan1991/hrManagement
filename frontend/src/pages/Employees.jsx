@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button, Form, Modal, Badge, Row, Col, InputGroup } from 'react-bootstrap';
+import { useDepartments } from '../hooks/useDepartments';
 
 const SAMPLE_DATA = [
   { id: 1, first_name: 'Rajesh', last_name: 'Sharma', email: 'rajesh@company.com', phone: '9841000001', department: 'Engineering', designation: 'Senior Developer', date_of_joining: '2022-03-15', base_salary: 85000, gender: 'Male', status: 'Active' },
@@ -9,7 +10,6 @@ const SAMPLE_DATA = [
   { id: 4, first_name: 'Sunita', last_name: 'Gurung', email: 'sunita@company.com', phone: '9841000004', department: 'Marketing', designation: 'Marketing Lead', date_of_joining: '2022-09-20', base_salary: 62000, gender: 'Female', status: 'Inactive' },
 ];
 
-const DEPARTMENTS = ['Engineering', 'HR', 'Finance', 'Marketing', 'Operations', 'Design', 'Sales'];
 const DESIGNATIONS = ['Junior Developer', 'Senior Developer', 'Team Lead', 'Manager', 'Director', 'HR Executive', 'HR Manager', 'Accountant', 'Marketing Lead', 'Sales Executive'];
 
 const emptyForm = { first_name: '', last_name: '', email: '', phone: '', date_of_birth: '', gender: '', address: '', department: '', designation: '', date_of_joining: '', base_salary: '', status: 'Active' };
@@ -17,6 +17,7 @@ const emptyForm = { first_name: '', last_name: '', email: '', phone: '', date_of
 const API_URL = 'http://localhost:5000/api/employees';
 
 const Employees = () => {
+  const { departments } = useDepartments();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -111,7 +112,7 @@ const Employees = () => {
         <Col md={3}>
           <Form.Select value={filterDept} onChange={e => setFilterDept(e.target.value)}>
             <option value="">All Departments</option>
-            {DEPARTMENTS.map(d => <option key={d}>{d}</option>)}
+            {departments.map(d => <option key={d}>{d}</option>)}
           </Form.Select>
         </Col>
         <Col md={3}>
@@ -185,7 +186,7 @@ const Employees = () => {
               <Col md={6}><Form.Group><Form.Label>Phone</Form.Label><Form.Control value={formData.phone} onChange={set('phone')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Date of Birth</Form.Label><Form.Control type="date" value={formData.date_of_birth} onChange={set('date_of_birth')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Gender</Form.Label><Form.Select value={formData.gender} onChange={set('gender')}><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></Form.Select></Form.Group></Col>
-              <Col md={6}><Form.Group><Form.Label>Department <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.department} onChange={set('department')}><option value="">Select Department</option>{DEPARTMENTS.map(d => <option key={d}>{d}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Department <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.department} onChange={set('department')}><option value="">Select Department</option>{departments.map(d => <option key={d}>{d}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Designation</Form.Label><Form.Select value={formData.designation} onChange={set('designation')}><option value="">Select Designation</option>{DESIGNATIONS.map(d => <option key={d}>{d}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Date of Joining</Form.Label><Form.Control type="date" value={formData.date_of_joining} onChange={set('date_of_joining')} /></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Base Salary (Rs.)</Form.Label><Form.Control type="number" value={formData.base_salary} onChange={set('base_salary')} /></Form.Group></Col>

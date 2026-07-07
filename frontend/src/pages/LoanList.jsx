@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
+import { useEmployees } from '../hooks/useEmployees';
 
 const SAMPLE = [
   { id: 1, employee: 'Rajesh Sharma', loan_type: 'Personal Loan', amount: 150000, interest_rate: 12, duration_months: 24, emi_amount: 7054, reason: 'Medical emergency', approval_status: 'Approved', applied_date: '2025-05-01' },
@@ -9,7 +10,6 @@ const SAMPLE = [
 ];
 
 const LOAN_TYPES = ['Personal Loan', 'Home Loan', 'Education Loan', 'Vehicle Loan', 'Emergency Loan'];
-const EMPLOYEES = ['Rajesh Sharma', 'Priya Thapa', 'Amit Poudel', 'Sunita Gurung', 'Bikash Rai'];
 const statusColor = { Pending: 'warning', Approved: 'success', Rejected: 'danger' };
 
 const emptyForm = { employee: '', loan_type: '', amount: '', interest_rate: '', duration_months: '', emi_amount: '', reason: '', approval_status: 'Pending', applied_date: '' };
@@ -17,6 +17,7 @@ const emptyForm = { employee: '', loan_type: '', amount: '', interest_rate: '', 
 const API_URL = 'http://localhost:5000/api/loan-list';
 
 const LoanList = () => {
+  const { employees } = useEmployees();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -138,7 +139,7 @@ const LoanList = () => {
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
             <Row className="g-3">
-              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{EMPLOYEES.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
+              <Col md={6}><Form.Group><Form.Label>Employee <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.employee} onChange={set('employee')}><option value="">Select Employee</option>{employees.map(e => <option key={e}>{e}</option>)}</Form.Select></Form.Group></Col>
               <Col md={6}><Form.Group><Form.Label>Loan Type <span className="text-danger">*</span></Form.Label><Form.Select required value={formData.loan_type} onChange={set('loan_type')}><option value="">Select Loan Type</option>{LOAN_TYPES.map(l => <option key={l}>{l}</option>)}</Form.Select></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Amount (Rs.) <span className="text-danger">*</span></Form.Label><Form.Control type="number" required value={formData.amount} onChange={set('amount')} onBlur={calcEMI} /></Form.Group></Col>
               <Col md={4}><Form.Group><Form.Label>Interest Rate (%)</Form.Label><Form.Control type="number" step="0.1" value={formData.interest_rate} onChange={set('interest_rate')} onBlur={calcEMI} /></Form.Group></Col>
