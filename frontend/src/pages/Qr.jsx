@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Modal, Badge, Row, Col, Table } from 'react-bootstrap';
-
-const BRANCHES = ['Head Office', 'Kathmandu Branch', 'Pokhara Branch', 'Birgunj Branch'];
+import { useBranches } from '../hooks/useBranches';
 
 const SAMPLE = [
   { id: 1, branch_id: 'Head Office', title: 'Main Entry QR Code', code: 'QR-HO-001', generated: '2025-01-01', status: 'Active', scans: 512 },
@@ -15,6 +14,7 @@ const emptyForm = { branch_id: '', title: '', status: 'Active' };
 const API_URL = 'http://localhost:5000/api/qr';
 
 const Qr = () => {
+  const { branches } = useBranches();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -103,7 +103,7 @@ const Qr = () => {
             <tr key={item.id}>
               <td>{idx + 1}</td>
               <td className="fw-medium">{item.title}</td>
-              <td><Badge bg="info" className="bg-label-info text-info">{item.branch_id}</Badge></td>
+              <td><Badge bg="info" className="bg-label-info text-info">{branches.find(b => String(b.id) === String(item.branch_id))?.name || item.branch_id || '-'}</Badge></td>
               <td><code className="small text-muted">{item.code}</code></td>
               <td>{item.generated}</td>
               <td><strong className="text-primary">{item.scans.toLocaleString()}</strong></td>
@@ -129,7 +129,7 @@ const Qr = () => {
               <Form.Label>Branch <span className="text-danger">*</span></Form.Label>
               <Form.Select required value={formData.branch_id} onChange={set('branch_id')}>
                 <option value="">Select Branch</option>
-                {BRANCHES.map(b => <option key={b}>{b}</option>)}
+                {branches.map(b => <option key={b.id} value={b.id}>{b.name}</option>)}
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">

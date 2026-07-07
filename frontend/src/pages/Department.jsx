@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button, Form, Modal } from 'react-bootstrap';
+import { useBranches } from '../hooks/useBranches';
 
 const API_URL = 'http://localhost:5000/api/department';
 
 const Department = () => {
+  const { branches } = useBranches();
   const [items, setItems] = useState([]);
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({ branch_id: '', dept_name: '', dept_head_id: '', is_active: '' });
@@ -81,7 +83,7 @@ const Department = () => {
           {items.map(item => (
             <tr key={item.id}>
               <td>{item.id}</td>
-              <td>{item.branch_id || '-'}</td>
+              <td>{branches.find(b => String(b.id) === String(item.branch_id))?.name || item.branch_id || '-'}</td>
               <td>{item.dept_name || '-'}</td>
               <td>{item.dept_head_id || '-'}</td>
               <td>{item.is_active || '-'}</td>
@@ -111,11 +113,16 @@ const Department = () => {
           <Modal.Body>
             <Form.Group className="mb-3">
               <Form.Label>Branch</Form.Label>
-              <Form.Control 
-                type="text"
+              <Form.Select 
+                required
                 value={formData.branch_id} 
-                onChange={e => setFormData({...formData, branch_id: e.target.value})} 
-              />
+                onChange={e => setFormData({...formData, branch_id: e.target.value})}
+              >
+                <option value="">Select Branch</option>
+                {branches.map(b => (
+                  <option key={b.id} value={b.id}>{b.name}</option>
+                ))}
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Department Name</Form.Label>

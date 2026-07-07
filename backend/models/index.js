@@ -92,13 +92,8 @@ const Branch = sequelize.define('Branch', {
   location: { type: DataTypes.STRING },
 });
 
-const Department = sequelize.define('Department', {
-  name: { type: DataTypes.STRING, allowNull: false },
-});
-
-const Post = sequelize.define('Post', {
-  name: { type: DataTypes.STRING, allowNull: false },
-});
+const Department = require('./Department');
+const Post = require('./Post');
 
 // Relationships
 Company.hasMany(Branch, { foreignKey: 'company_id', onDelete: 'CASCADE' });
