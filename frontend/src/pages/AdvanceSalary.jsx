@@ -137,11 +137,14 @@ const AdvanceSalary = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>status</Form.Label>
-              <Form.Control 
-                type="text"
+              <Form.Select 
                 value={formData.status} 
                 onChange={e => setFormData({...formData, status: e.target.value})} 
-              />
+              >
+                <option>Pending</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>month</Form.Label>

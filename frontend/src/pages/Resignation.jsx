@@ -169,11 +169,14 @@ const Resignation = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Status</Form.Label>
-              <Form.Control 
-                type="text"
+              <Form.Select 
                 value={formData.status} 
                 onChange={e => setFormData({...formData, status: e.target.value})} 
-              />
+              >
+                <option>Pending</option>
+                <option>Approved</option>
+                <option>Rejected</option>
+              </Form.Select>
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className="border-0 pt-0">

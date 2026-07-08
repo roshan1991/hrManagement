@@ -145,11 +145,14 @@ const ViewAllProjects = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Project Status</Form.Label>
-              <Form.Control 
-                type="text"
+              <Form.Select 
                 value={formData.status} 
                 onChange={e => setFormData({...formData, status: e.target.value})} 
-              />
+              >
+                <option>To Do</option>
+                <option>In Progress</option>
+                <option>Done</option>
+              </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Project Cost</Form.Label>

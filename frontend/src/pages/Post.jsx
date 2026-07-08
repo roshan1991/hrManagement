@@ -135,11 +135,13 @@ const Post = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Status</Form.Label>
-              <Form.Control 
-                type="text"
+              <Form.Select 
                 value={formData.is_active} 
                 onChange={e => setFormData({...formData, is_active: e.target.value})} 
-              />
+              >
+                <option>Active</option>
+                <option>Inactive</option>
+              </Form.Select>
             </Form.Group>
           </Modal.Body>
           <Modal.Footer className="border-0 pt-0">
